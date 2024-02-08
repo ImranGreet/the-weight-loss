@@ -1,13 +1,9 @@
 <template>
-  <section>
+  <section class="w-full flex flex-col justify-between gap-y-6">
     <intro />
     <Trust />
     <Video />
-
-    <div class="max-w-7xl mx-auto">
-      <Step />
-    </div>
-    <Result />
+    <Step />
   </section>
 </template>
 

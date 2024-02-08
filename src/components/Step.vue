@@ -1,146 +1,36 @@
 <template>
-  <section class="w-full">
+  <section
+    class="w-full lg:max-w-7xl xl:max-w-[1400px] mx-auto py-10 px-6 lg:px-0"
+  >
     <div class="w-full h-20"></div>
     <div class="w-full flex flex-col justify-center items-center">
       <div class="space-y-4 self-start">
-        <p>PROGRAMME</p>
+        <p class="tracking-wide capitalize">PROGRAMME</p>
         <h1 class="text-4xl">Our three-step approach</h1>
       </div>
       <div class="w-full h-20"></div>
-      <div class="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+      <div
+        class="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-6"
+      >
         <div
-          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          v-for="(step, index) in steps"
+          :key="index"
+          class="max-w-sm bg-white rounded-lg"
         >
           <a href="#">
-            <img
-              class="rounded-t-lg"
-              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
+            <img class="rounded-lg w-full" :src="step.image" alt="" />
           </a>
-          <div class="p-5">
+          <div class="pt-5">
             <a href="#">
               <h5
                 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
               >
-                Noteworthy technology acquisitions 2021
+                {{ step.title }}
               </h5>
             </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
+              {{ step.description }}
             </p>
-            <a
-              href="#"
-              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Read more
-              <svg
-                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div
-          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-        >
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5
-                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-              >
-                Noteworthy technology acquisitions 2021
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
-            </p>
-            <a
-              href="#"
-              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Read more
-              <svg
-                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div
-          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-        >
-          <a href="#">
-            <img
-              class="rounded-t-lg"
-              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            />
-          </a>
-          <div class="p-5">
-            <a href="#">
-              <h5
-                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-              >
-                Noteworthy technology acquisitions 2021
-              </h5>
-            </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
-            </p>
-            <a
-              href="#"
-              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Read more
-              <svg
-                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </a>
           </div>
         </div>
       </div>
@@ -149,8 +39,41 @@
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   name: "Step",
+  setup() {
+    const steps = ref([
+      {
+        id: 1,
+        title: "Breakthrough medication",
+        description:
+          "Set off on the right foot with weight loss medication that’s proven to help you hit the ground running and reach your goals faster",
+        image:
+          "https://www.joinvoy.com/_next/image?url=https%3A%2F%2Fjoinvoycom.s3.eu-west-1.amazonaws.com%2FWEB_UK%2Fhomepage%2Foffering%2Fhomepage_offering.png&w=1920&q=1",
+      },
+      {
+        id: 2,
+        title: "Dedicated health team",
+        description:
+          "Whether you need support with your medication, nutrition or motivation, our specialist teams of coaches, clinicians and nutritionists have you covered.",
+        image:
+          "https://joinvoycom.s3.eu-west-1.amazonaws.com/WEB_UK/homepage/offering/team.svg",
+      },
+      {
+        id: 3,
+        title: "Complete toolkit",
+        description:
+          "Build a new, healthier lifestyle with expert tips on nutrition, movement and mindset, easy-to-understand science and progress tracking that’s proven to reinforce your motivation.",
+        image:
+          "https://joinvoycom.s3.eu-west-1.amazonaws.com/WEB_UK/homepage/how-it-works/complete_toolkit.svg",
+      },
+    ]);
+
+    return {
+      steps,
+    };
+  },
 };
 </script>
 

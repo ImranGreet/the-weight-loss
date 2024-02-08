@@ -1,18 +1,25 @@
 <template>
-  <section class="max-w-7xl mx-auto py-20">
+  <section class="w-full lg:max-w-7xl xl:max-w-[1400px] mx-auto py-10">
     <div class="w-full border-b border-gray-600/15">
       <div class="text-start">
-        <h3>Rated Excellent</h3>
+        <h3 class="text-xs font-black leading-loose tracking-widest">
+          Rated Excellent
+        </h3>
         <div class="flex justify-start gap-x-2">
-          <i>*</i>
-          <h4>Trust Pilot</h4>
+          <h4>
+            <i
+              ><img
+                src="../assets/trustpilot star.svg"
+                alt=""
+                class="w-24 h-24"
+            /></i>
+            <span class="flex gap-x-2"></span>
+          </h4>
         </div>
       </div>
     </div>
-    <div
-      class="w-full flex justify-between items-center flex-col lg:flex-row py-20"
-    >
-      <div class="w-full grid grid-cols-4">
+    <div class="w-full flex justify-between items-center py-10">
+      <div class="w-full flex justify-between">
         <h1
           v-for="(trust, index) in trustedBy"
           :key="index"
@@ -23,8 +30,11 @@
         </h1>
       </div>
     </div>
+    <div class="w-full h-10 lg:h-14 xl:h-20"></div>
     <!-- accordion -->
-    <div class="w-full flex flex-col justify-between lg:flex-row">
+    <div
+      class="w-full flex flex-col justify-between items-start sm:flex-row px-6 xl:px-0 sm:gap-x-5 lg:gap-x-10 xl:gap-x-48"
+    >
       <div class="prose max-w-none space-y-3">
         <h1>Introducing a new way to lose weight</h1>
         <p>
@@ -123,3 +133,7 @@ export default {
 
 <style>
 </style>
+
+
+
+

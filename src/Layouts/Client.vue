@@ -1,9 +1,8 @@
 <template>
   <section class="w-full flex flex-col justify-between min-h-screen">
-    <div class="w-full py-20 bg-primary"></div>
     <Navbar></Navbar>
     <router-view />
-    <Footer />
+    <!-- <Footer /> -->
   </section>
 </template>
 

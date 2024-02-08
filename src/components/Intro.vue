@@ -1,10 +1,10 @@
 <template>
-  <section class="w-full">
+  <section class="w-full mt-20">
     <div
-      class="w-full h-[650px] flex flex-col items-center lg:flex-row py-8 px-5 lg:px-24 gap-x-20 bg-primary"
+      class="w-full flex flex-col items-center sm:flex-row py-8 lg:px-24 sm:gap-x-20 bg-primary"
     >
-      <div class="w-full space-y-3 xl:pl-36">
-        <div class="prose">
+      <div class="w-full space-y-3 xl:pl-36 px-5 lg:px-0">
+        <div class="prose max-w-none sm:max-w-prose">
           <h1 class="text-6xl font-[400px] leading-[72px]">
             The last weight loss programme you’ll ever need
           </h1>
@@ -12,12 +12,18 @@
             Break free of fads and yo-yo diets. Achieve a healthier, happier
             weight with programmes backed by science.
           </p>
-          <button class="bg-primary p-3 rounded-md border border-white">
+          <button
+            class="bg-primary px-5 py-3 rounded-md border border-white w-full sm:w-auto"
+          >
             Am I Eligible
           </button>
           <div class="border-t border-gray-700 mt-14">
             <div class="w-full flex justify-start items-start gap-x-6">
-              <h1 class="text-6xl font-[400px] leading-[72px]">No.1</h1>
+              <h1
+                class="text-3xl lg:text-4xl xl:text-6xl font-[400px] leading-[72px]"
+              >
+                No.1
+              </h1>
               <p>
                 We are the UK’s leading medicated weight loss programme, with
                 over 10,000 UK members
@@ -26,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="w-full h-full flex justify-center items-center pl-20">
+      <div class="w-full h-full flex justify-center items-center lg:pl-20">
         <img
           src="https://www.joinvoy.com/_next/image?url=https%3A%2F%2Fjoinvoycom.s3.eu-west-1.amazonaws.com%2FWEB_UK%2Fhomepage%2FHero%2FHomepage_Hero_Desktop_compliant.png&w=1920&q=100"
           alt=""

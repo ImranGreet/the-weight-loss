@@ -1,9 +1,9 @@
 <template>
-  <div class="w-full px-4 pt-16">
-    <div class="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
+  <div class="w-full">
+    <div class="mx-auto w-full rounded-2xl bg-white">
       <Disclosure v-slot="{ open }">
         <DisclosureButton
-          class="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75"
+          class="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-5 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75"
         >
           <span>What is your refund policy?</span>
           <ChevronUpIcon
@@ -18,7 +18,7 @@
       </Disclosure>
       <Disclosure as="div" class="mt-2" v-slot="{ open }">
         <DisclosureButton
-          class="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75"
+          class="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-5 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75"
         >
           <span>Do you offer technical support?</span>
           <ChevronUpIcon
