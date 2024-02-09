@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full flex flex-col justify-between min-h-screen">
+  <section class="w-full flex flex-col justify-between min-h-screen ">
     <Navbar></Navbar>
     <router-view />
     <Footer />

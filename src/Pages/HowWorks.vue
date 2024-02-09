@@ -8,7 +8,7 @@
     <Expectations />
     <ResultSpeak />
 
-    <BeforeAfter />
+    <!-- <BeforeAfter /> -->
 
     <Paralax class="rounded-t-[72px]">
       <div class="w-full flex flex-col justify-center items-center h-96">

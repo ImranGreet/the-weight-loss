@@ -6,7 +6,7 @@
     <Step />
     <Result />
     <div class="w-full h-10"></div>
-    <BeforeAfter />
+    <!-- <BeforeAfter /> -->
     <Curve />
     <WeightLossJourneyContainer />
     <div class="w-full h-36"></div>

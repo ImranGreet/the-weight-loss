@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full mt-20">
+  <section class="w-full mt-10 lg:mt-20">
     <div
       class="w-full flex flex-col items-center sm:flex-row py-8 lg:px-24 sm:gap-x-20 bg-primary"
     >

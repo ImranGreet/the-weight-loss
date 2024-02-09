@@ -1,6 +1,6 @@
 <template>
   <section
-    class="w-full h-[70vh] gradient-background rounded-[36px] lg:rounded-[85px]"
+    class="w-full h-auto lg:h-[70vh] gradient-background rounded-[36px] lg:rounded-[85px]"
   >
     <div class="w-full h-20"></div>
     <div
