@@ -9,8 +9,13 @@ const routes = [
         path: "/",
         component: () => import("../Pages/Home.vue"),
       },
+      {
+        path: "/how_works",
+        component: () => import("../Pages/HowWorks.vue"),
+      },
     ],
   },
+
   {
     path: "/n/weight-loss/quiz/1",
     component: () => import("../Layouts/Quiz.vue"),
