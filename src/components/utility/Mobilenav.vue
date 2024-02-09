@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="w-full flex justif-center items-center shadow py-2 border-b-2 border-gray-300 fixed inset-x-0 bg-white z-[999]"
+      class="w-full flex justif-center items-center shadow py-2 border-b-2 border-gray-300 fixed inset-x-0 bg-white"
       :class="{ transition: showMobile }"
     >
       <img
