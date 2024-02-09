@@ -42,7 +42,7 @@ const routes = [
       },
       {
         path: "/n/weight-loss/quiz/5",
-        component: () => import("../Pages/QuizeFIve.vue"),
+        component: () => import("../Pages/QuizeFive.vue"),
       },
     ],
   },
