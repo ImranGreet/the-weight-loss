@@ -92,27 +92,30 @@
             class="space-y-5 w-full tracking-wider"
             :class="{ block: showProgrumme, hidden: !showProgrumme }"
           >
-            <li>
+            <li class="w-full flex justify-between">
               <router-link
-                to="#"
+                :to="{ name: 'how' }"
                 class="border-b border-gray-300 block w-full py-2"
               >
                 How It Works
               </router-link>
+              <span v-html="chevronRight"></span>
             </li>
-            <li class="w-full">
+            <li class="w-full flex justify-between">
               <router-link
-                to="#"
+                :to="{ name: 'medications' }"
                 class="border-b border-gray-300 block w-full py-2"
                 >Medication</router-link
               >
+              <span v-html="chevronRight"></span>
             </li>
-            <li class="w-full">
+            <li class="w-full flex justify-between">
               <router-link
                 to="#"
                 class="border-b border-gray-300 block w-full py-2"
                 >Coaching</router-link
               >
+              <span v-html="chevronRight"></span>
             </li>
           </ul>
         </div>
@@ -178,6 +181,7 @@
 
 <script>
 import { ref } from "vue";
+import { onBeforeRouteUpdate } from "vue-router";
 export default {
   name: "MobileNav",
   setup() {
@@ -207,6 +211,11 @@ export default {
               </svg>`;
     let showMobile = ref(false);
     let showProgrumme = ref(false);
+
+    onBeforeRouteUpdate((to, from, next) => {
+      showMobile.value = false;
+      next();
+    });
     return {
       MobileNavController,
       MobileNavBar,

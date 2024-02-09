@@ -70,7 +70,7 @@ const solutions = [
   {
     name: "Medication",
     description: "Create your own targeted content",
-    href: "#", // Change the path accordingly
+    href: "/medications", // Change the path accordingly
     icon: `
       <!-- Your SVG code -->
     `,
