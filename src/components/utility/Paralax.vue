@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-gradient">
+  <section class="gradient-background">
     <div class="px-10 py-14">
       <slot></slot>
     </div>
@@ -18,15 +18,8 @@ export default {
 };
 </script>
 
-<style>
-.bg-gradient {
-  background: linear-gradient(
-    to bottom,
-    #005070,
-    #a1d2c8,
-    #ffffff,
-    #a1d2c8,
-    #005070
-  );
+<style scoped>
+.gradient-background {
+  background: linear-gradient(to bottom, #6aa5bd, #66a5ad, #ddd6d6, #66a5ad);
 }
 </style>

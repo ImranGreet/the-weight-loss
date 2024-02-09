@@ -3,14 +3,17 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
+
     component: () => import("../Layouts/Client.vue"),
     children: [
       {
         path: "/",
+        name: "home",
         component: () => import("../Pages/Home.vue"),
       },
       {
         path: "/how_works",
+        name: "how",
         component: () => import("../Pages/HowWorks.vue"),
       },
     ],
@@ -22,6 +25,7 @@ const routes = [
     children: [
       {
         path: "/n/weight-loss/quiz/1",
+        name: "quiz",
         component: () => import("../Pages/Agreement.vue"),
       },
       {

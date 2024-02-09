@@ -6,6 +6,7 @@
     <Step />
     <Result />
     <div class="w-full h-10"></div>
+    <BeforeAfter />
     <Curve />
     <WeightLossJourneyContainer />
     <div class="w-full h-36"></div>
@@ -35,6 +36,7 @@
 import Curve from "../components/Curve.vue";
 import Intro from "../components/Intro.vue";
 import Result from "../components/Result.vue";
+import BeforeAfter from "../components/Slider/BeforeAfter.vue";
 import Step from "../components/Step.vue";
 import Trust from "../components/Trust.vue";
 import Video from "../components/Video.vue";
@@ -52,6 +54,7 @@ export default {
     Curve,
     WeightLossJourneyContainer,
     Paralax,
+    BeforeAfter,
   },
 };
 </script>

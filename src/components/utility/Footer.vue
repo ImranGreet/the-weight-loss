@@ -17,19 +17,15 @@
             </h2>
             <ul class="text-gray-500 dark:text-gray-400 font-medium space-y-2">
               <li>
-                <router-link to="#" class="hover:underline"
+                <router-link :to="{ name: 'how' }" class="hover:underline"
                   >How it works</router-link
                 >
               </li>
               <li>
-                <a href="https://tailwindcss.com/" class="hover:underline"
-                  >Medication</a
-                >
+                <a href="#" class="hover:underline">Medication</a>
               </li>
               <li>
-                <a href="https://tailwindcss.com/" class="hover:underline"
-                  >Coaching</a
-                >
+                <a href="#" class="hover:underline">Coaching</a>
               </li>
             </ul>
           </div>
@@ -41,7 +37,9 @@
             </h2>
             <ul class="text-gray-500 dark:text-gray-400 font-medium">
               <li class="mb-4">
-                <router-li to="#" class="hover:underline">results</router-li>
+                <router-link to="#" class="hover:underline"
+                  >results</router-link
+                >
               </li>
             </ul>
           </div>
@@ -66,13 +64,13 @@
       />
       <div class="sm:flex sm:items-center sm:justify-between">
         <div class="mb-6 md:mb-0">
-          <a href="https://flowbite.com/" class="flex items-center">
+          <router-link :to="{ name: 'home' }" class="flex items-center">
             <img
               src="../../assets/1.png"
               class="h-8 me-3"
               alt="FlowBite Logo"
             />
-          </a>
+          </router-link>
           <div class="space-y-2">
             <ul class="flex justify-start gap-x-2">
               <li>
@@ -191,8 +189,11 @@
 </template>
 
 <script>
+import router from "../../router";
+
 export default {
   name: "Footer",
+  components: { router },
 };
 </script>
 

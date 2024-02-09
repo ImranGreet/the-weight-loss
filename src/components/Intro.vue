@@ -12,11 +12,12 @@
             Break free of fads and yo-yo diets. Achieve a healthier, happier
             weight with programmes backed by science.
           </p>
-          <button
+          <router-link
+            :to="{ name: 'quiz' }"
             class="bg-primary px-5 py-3 rounded-md border border-white w-full sm:w-auto"
           >
             Am I Eligible
-          </button>
+          </router-link>
           <div class="border-t border-gray-700 mt-14">
             <div class="w-full flex justify-start items-start gap-x-6">
               <h1
