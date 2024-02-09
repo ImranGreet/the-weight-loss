@@ -1,5 +1,5 @@
 <template>
-  <footer class="dark:bg-gray-900 relative h-auto">
+  <footer class="relative h-auto z-0">
     <div class="mx-auto w-full container p-4 py-10 lg:py-36">
       <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
@@ -72,7 +72,7 @@
             />
           </router-link>
           <div class="space-y-2">
-            <ul class="flex justify-start gap-x-2">
+            <ul class="flex justify-start flex-wrap gap-x-2">
               <li>
                 <router-link to="#">Privacy Policy </router-link>
               </li>
@@ -171,15 +171,18 @@
         </div>
       </div>
     </div>
+    <div class="w-full h-5 block lg:hidden"></div>
     <div class="w-full absolute bottom-0 inset-x-0 h-20 shadow-md bg-primary">
       <div class="container mx-auto h-full">
         <div
-          class="w-full h-full flex justify-between items-center text-center"
+          class="w-full h-full flex justify-center sm:justify-between items-center text-center"
         >
-          <p class="tracking-wider leading-snug">
+          <p class="tracking-wider leading-snug hidden sm:block">
             Take the first step towards weight loss that lasts.
           </p>
-          <router-link to="#" class="px-10 py-3 border border-white"
+          <router-link
+            to="#"
+            class="px-10 py-3 border border-white w-11/12 mx-auto sm:w-auto"
             >Ami I Eligible</router-link
           >
         </div>
