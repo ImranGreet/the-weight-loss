@@ -181,10 +181,12 @@
 
 <script>
 import { ref } from "vue";
-import { onBeforeRouteUpdate } from "vue-router";
+import { onBeforeRouteUpdate, useRouter } from "vue-router";
+
 export default {
   name: "MobileNav",
   setup() {
+    const routes = useRouter();
     let MobileNavController = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
 </svg>
@@ -212,9 +214,8 @@ export default {
     let showMobile = ref(false);
     let showProgrumme = ref(false);
 
-    onBeforeRouteUpdate((to, from, next) => {
+    routes.afterEach(() => {
       showMobile.value = false;
-      next();
     });
     return {
       MobileNavController,
@@ -222,6 +223,7 @@ export default {
       showMobile,
       showProgrumme,
       chevronRight,
+      routes,
     };
   },
 };
