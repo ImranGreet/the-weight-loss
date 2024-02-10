@@ -35,6 +35,7 @@
         </div>
       </div>
     </Paralax>
+    
   </section>
 </template>
 
@@ -51,6 +52,7 @@ import WeightLossJourneyContainer from "../components/WeightLossJourneyContainer
 import Paralax from "../components/utility/Paralax.vue";
 import ExpertGroup from "../components/Homepage/ExpertGroup.vue";
 import Poster from "../components/Poster.vue";
+import MultipleSlider from "../components/Slider/MultipleSlider.vue";
 
 export default {
   name: "Home",
@@ -67,6 +69,7 @@ export default {
     WayOfLossWeight,
     ExpertGroup,
     Poster,
+    MultipleSlider,
   },
 };
 </script>
