@@ -10,15 +10,31 @@
       </div>
     </div>
     <section
-      class="bg-primary min-h-[91vh] flex flex-col justify-center items-center"
+      class="bg-primary min-h-[91vh] flex-col justify-center items-center"
+      :class="{ flex: !recommneded, hidden: recommneded }"
     >
       <router-view />
     </section>
+    <div :class="{ 'w-full block': recommneded, hidden: !recommneded }">
+      <NotRecomended />
+    </div>
   </section>
 </template>
 
 <script>
-export default {};
+import NotRecomended from "../Pages/NotRecomended.vue";
+import { recommneded, toggleRecommned } from "../scripts/Recommnded";
+
+export default {
+  name: "quiz",
+  components: { NotRecomended },
+  setup() {
+    return {
+      recommneded,
+      toggleRecommned,
+    };
+  },
+};
 </script>
 
 <style>

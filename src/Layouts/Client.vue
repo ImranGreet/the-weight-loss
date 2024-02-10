@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full flex flex-col justify-between min-h-screen">
+  <section class="w-full flex flex-col justify-between min-h-screen relative">
     <Navbar></Navbar>
     <router-view />
     <Footer />
@@ -22,19 +22,25 @@
         </div>
       </div>
     </div>
+    
   </section>
 </template>
 
 <script>
+import NotRecomended from "../Pages/NotRecomended.vue";
 import Navbar from "../components/Navs/Navbar.vue";
 
 import Footer from "../components/utility/Footer.vue";
+
 
 export default {
   name: "Client",
   components: {
     Navbar,
     Footer,
+    NotRecomended,
+    recommneded,
+    toggleRecommned,
   },
 };
 </script>

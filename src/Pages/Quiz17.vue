@@ -3,22 +3,11 @@
     <div class="w-full h-full flex flex-col justify-center items-center">
       <div class="w-full px-2 sm:px-0 lg:w-1/3 mx-auto">
         <div class="space-y-2 prose">
-          <h1>Do you suffer from any of the following?</h1>
+          <h1>
+            Are you taking any other medications, including GLP-1s, e.g.
+            Ozempic/Saxenda/Wegovy?
+          </h1>
           <div class="px-3">
-            <ol class="list-disc">
-              <li>Liver, kidney, or heart failure</li>
-              <li>Pancreatitis</li>
-              <li>Multiple endocrine neoplasia type 2</li>
-              <li>Cancer</li>
-              <li>Type 1 diabetes or diabetic retinopathy</li>
-              <li>Personal or family history of medullary thyroid cancer</li>
-              <li>
-                A current eating disorder or a history of an eating disorder?
-                (e.g., anorexia, bulimia, binge eating disorder)
-              </li>
-              <li>History of gallbladder problem</li>
-              <li>History of Inflammatory bowel disease or gastroparesis</li>
-            </ol>
             <div class="flex flex-col items-center w-full space-y-4">
               <div class="flex flex-col items-center w-full">
                 <label
@@ -29,7 +18,7 @@
                     id="radioYes"
                     name="answer"
                     class="hidden"
-                    @click="selectOption(true)"
+                    @change="selectOption(true)"
                   />
                   <span
                     class="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center"
@@ -53,7 +42,7 @@
                     id="radioNo"
                     name="answer"
                     class="hidden"
-                    @click="selectOption(false)"
+                    @change="selectOption(false)"
                   />
                   <span
                     class="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center"
@@ -61,7 +50,7 @@
                   >
                     <span
                       v-if="selected === false"
-                      class="inner-circle w-3 rounded-full bg-white"
+                      class="inner-circle w-3 h-3 rounded-full bg-white"
                     ></span>
                   </span>
                   <span class="text-xl">No</span>
@@ -81,18 +70,17 @@ import { useRouter } from "vue-router";
 import { recommneded, toggleRecommned } from "../scripts/Recommnded";
 
 export default {
-  name: "Agreement",
+  name: "Medications",
   setup() {
     const routes = useRouter();
-    const selected = ref(null);
+    const selected = ref(false);
 
     const selectOption = function (option) {
       selected.value = option;
-
       if (selected.value) {
         toggleRecommned();
       } else {
-        routes.push({ name: "quiz14" });
+        routes.push({ name: "quiz18" });
       }
     };
 
