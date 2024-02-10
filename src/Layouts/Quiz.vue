@@ -10,7 +10,7 @@
       </div>
     </div>
     <section
-      class="bg-primary h-[91vh] flex flex-col justify-center items-center"
+      class="bg-primary min-h-screen flex flex-col justify-center items-center"
     >
       <router-view />
     </section>

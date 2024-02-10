@@ -11,15 +11,15 @@
             <input
               type="number"
               class="w-full rounded-lg p-3 bg-inherit"
-              placeholder="cm"
+              placeholder="cms"
             />
           </div>
           <div class="flex flex-col items-start cursor-pointer p-4">
-            <label for="height" class="text-lg">Height</label>
+            <label for="height" class="text-lg">Weight</label>
             <input
               type="number"
               class="w-full p-3 rounded-lg bg-inherit"
-              placeholder="kg"
+              placeholder="kgs"
             />
           </div>
           <button
