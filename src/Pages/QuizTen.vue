@@ -49,24 +49,24 @@ export default {
     const questions = ref([
       {
         id: 1,
-        text: "What are your main reasons for wanting to lose weight?",
+        text: "What challenges have you faced with exercise or trying to be more active?",
         reasons: [
-          { id: 1, text: "Improving my overall health", selected: ref(false) },
+          { id: 1, text: "I do not have enough time", selected: ref(false) },
+          { id: 2, text: "I lose motivation", selected: ref(false) },
           {
-            id: 2,
-            text: "Avoiding or managing a specific health condition",
+            id: 3,
+            text: "Injury / illness makes it difficult",
             selected: ref(false),
           },
-          { id: 3, text: "Looking and feeling better", selected: ref(false) },
-          { id: 4, text: "Becoming more active", selected: ref(false) },
+          { id: 4, text: "I do not find it enjoyable", selected: ref(false) },
           {
             id: 5,
-            text: "Improving my mood or mental wellbeing",
+            text: "I feel uncomfortable exercising in front of others",
             selected: ref(false),
           },
           {
             id: 6,
-            text: "Improving my sleep or energy levels",
+            text: "I haven’t tried to be more active",
             selected: ref(false),
           },
           { id: 7, text: "Other", selected: ref(false) },
@@ -92,8 +92,10 @@ export default {
       // Move to the next question
       if (currentQuestionIndex.value < questions.value.length - 1) {
         currentQuestionIndex.value++;
+      } else {
+        // If it's the last question, navigate to the next route
+        routes.push({ name: "quizThree" });
       }
-      routes.push({ name: "quizThree" });
     };
 
     return {

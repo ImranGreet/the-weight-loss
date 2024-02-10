@@ -22,7 +22,10 @@
               placeholder="kg"
             />
           </div>
-          <button class="bg-orange-700 w-full text-white py-2 px-4 rounded">
+          <button
+            @click="naviagteToPage()"
+            class="bg-orange-700 w-full text-white py-2 px-4 rounded"
+          >
             Continue
           </button>
         </div>
@@ -33,13 +36,19 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
 export default {
   name: "WeightLossQuestionnaire",
   setup() {
+    const routes = useRouter();
+    const naviagteToPage = function () {
+      routes.push({ name: "quizFour" });
+    };
     let question = "What is your height and weight?s";
     return {
       question,
+      naviagteToPage,
     };
   },
 };

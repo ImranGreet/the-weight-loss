@@ -4,7 +4,7 @@
       <div
         class="w-full px-2 sm:px-0 lg:w-1/2 flex flex-col justify-center items-center mx-auto"
       >
-        <div class="space-y-6 prose">
+        <div class="space-y-4 prose">
           <h1>{{ currentQuestion.text }}</h1>
           <div
             v-for="reason in currentQuestion.reasons"
@@ -40,7 +40,7 @@
 
 <script>
 import { ref } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 
 export default {
   name: "WeightLossQuestionnaire",
@@ -49,33 +49,58 @@ export default {
     const questions = ref([
       {
         id: 1,
-        text: "What are your main reasons for wanting to lose weight?",
+        text: "What challenges have you faced with exercise or trying to be more active?",
         reasons: [
-          { id: 1, text: "Improving my overall health", selected: ref(false) },
+          { id: 1, text: "I do not have enough time", selected: ref(false) },
+          { id: 2, text: "I lose motivation", selected: ref(false) },
           {
-            id: 2,
-            text: "Avoiding or managing a specific health condition",
+            id: 3,
+            text: "Injury / illness makes it difficult",
             selected: ref(false),
           },
-          { id: 3, text: "Looking and feeling better", selected: ref(false) },
-          { id: 4, text: "Becoming more active", selected: ref(false) },
+          { id: 4, text: "I do not find it enjoyable", selected: ref(false) },
           {
             id: 5,
-            text: "Improving my mood or mental wellbeing",
+            text: "I feel uncomfortable exercising in front of others",
             selected: ref(false),
           },
           {
             id: 6,
-            text: "Improving my sleep or energy levels",
+            text: "I haven’t tried to be more active",
             selected: ref(false),
           },
           { id: 7, text: "Other", selected: ref(false) },
         ],
       },
+      {
+        id: 2,
+        text: "What challenges have you faced when changing your eating habits?",
+        reasons: [
+          { id: 8, text: "I get hungry", selected: ref(false) },
+          { id: 9, text: "I get cravings", selected: ref(false) },
+          { id: 10, text: "I snack a lot", selected: ref(false) },
+          {
+            id: 11,
+            text: "I eat too much when I’m stressed",
+            selected: ref(false),
+          },
+          {
+            id: 12,
+            text: "I swing between being disciplined and binge eating",
+            selected: ref(false),
+          },
+          {
+            id: 13,
+            text: "I’m not sure what I should be eating",
+            selected: ref(false),
+          },
+          { id: 14, text: "Other", selected: ref(false) },
+        ],
+      },
       // Add more questions as needed
     ]);
 
-    const currentQuestionIndex = ref(0);
+    const currentQuestionIndex = ref(1); // Change the initial question index if needed
 
     const toggleCheckbox = (reason) => {
       reason.selected = !reason.selected;
@@ -92,8 +117,10 @@ export default {
       // Move to the next question
       if (currentQuestionIndex.value < questions.value.length - 1) {
         currentQuestionIndex.value++;
+      } else {
+        // If it's the last question, navigate to the next route
+        routes.push({ name: "quizThree" });
       }
-      routes.push({ name: "quizThree" });
     };
 
     return {

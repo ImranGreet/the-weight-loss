@@ -16,17 +16,22 @@
                 truthful.
               </li>
             </ol>
-            <div
-              class="flex items-center space-x-2 shadow border border-gray-400 p-2 cursor-pointer"
+            <label
+              class="flex items-center space-x-2 shadow border border-gray-400 p-2 cursor-pointer rounded-md"
+              @click="naviagteToPage()"
             >
-              <input
-                type="radio"
-                id="radioNo"
-                name="answer"
-                class="form-radio text-primary focus:ring-2 focus:ring-primary-dark"
-              />
-              <label for="radioNo" class="text-xl">Yes</label>
-            </div>
+              <input type="radio" id="radioYes" name="answer" class="hidden" />
+              <span
+                class="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center"
+                :class="{ 'bg-orange-700': selected }"
+              >
+                <span
+                  v-if="selected"
+                  class="inner-circle w-3 h-3 rounded-full bg-white"
+                ></span>
+              </span>
+              <span class="text-xl">Yes</span>
+            </label>
           </div>
         </div>
       </div>
@@ -35,8 +40,25 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
 export default {
   name: "Agreement",
+  setup() {
+    const routes = useRouter();
+    const selected = ref(false);
+
+    const naviagteToPage = function () {
+      selected.value = !selected.value;
+      routes.push({ name: "quizTwo" });
+    };
+
+    return {
+      selected,
+      naviagteToPage,
+    };
+  },
 };
 </script>
 

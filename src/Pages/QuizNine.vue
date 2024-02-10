@@ -4,7 +4,7 @@
       <div
         class="w-full px-2 sm:px-0 lg:w-1/2 flex flex-col justify-center items-center mx-auto"
       >
-        <div class="space-y-6 prose">
+        <div class="space-y-4 prose">
           <h1>{{ currentQuestion.text }}</h1>
           <div
             v-for="reason in currentQuestion.reasons"
@@ -49,27 +49,24 @@ export default {
     const questions = ref([
       {
         id: 1,
-        text: "What are your main reasons for wanting to lose weight?",
+        text: "What have you tried in the past to lose weight?",
         reasons: [
-          { id: 1, text: "Improving my overall health", selected: ref(false) },
           {
-            id: 2,
-            text: "Avoiding or managing a specific health condition",
+            id: 1,
+            text: "Exercise or being more active",
             selected: ref(false),
           },
-          { id: 3, text: "Looking and feeling better", selected: ref(false) },
-          { id: 4, text: "Becoming more active", selected: ref(false) },
-          {
-            id: 5,
-            text: "Improving my mood or mental wellbeing",
-            selected: ref(false),
-          },
-          {
-            id: 6,
-            text: "Improving my sleep or energy levels",
-            selected: ref(false),
-          },
+          { id: 2, text: "Dieting", selected: ref(false) },
+          { id: 3, text: "Calorie counting", selected: ref(false) },
+          { id: 4, text: "Weight loss programs", selected: ref(false) },
+          { id: 5, text: "Weight loss supplements", selected: ref(false) },
+          { id: 6, text: "Meal replacements and shakes", selected: ref(false) },
           { id: 7, text: "Other", selected: ref(false) },
+          {
+            id: 8,
+            text: "I haven't tried to lose weight",
+            selected: ref(false),
+          },
         ],
       },
       // Add more questions as needed
@@ -92,8 +89,10 @@ export default {
       // Move to the next question
       if (currentQuestionIndex.value < questions.value.length - 1) {
         currentQuestionIndex.value++;
+      } else {
+        // If it's the last question, navigate to the next route
+        routes.push({ name: "quizThree" });
       }
-      routes.push({ name: "quizThree" });
     };
 
     return {

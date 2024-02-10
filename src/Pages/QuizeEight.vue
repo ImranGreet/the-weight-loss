@@ -72,6 +72,47 @@ export default {
           { id: 7, text: "Other", selected: ref(false) },
         ],
       },
+      {
+        id: 2,
+        text: "How long have you struggled with your weight?",
+        reasons: [
+          { id: 8, text: "Last 12 months", selected: ref(false) },
+          { id: 9, text: "Last 5 years", selected: ref(false) },
+          { id: 10, text: "Last 10 years", selected: ref(false) },
+          { id: 11, text: "Most of my life", selected: ref(false) },
+          {
+            id: 12,
+            text: "I’ve never struggled with my weight",
+            selected: ref(false),
+          },
+        ],
+      },
+      {
+        id: 3,
+        text: "What have you tried in the past to lose weight?",
+        reasons: [
+          {
+            id: 13,
+            text: "Exercise or being more active",
+            selected: ref(false),
+          },
+          { id: 14, text: "Dieting", selected: ref(false) },
+          { id: 15, text: "Calorie counting", selected: ref(false) },
+          { id: 16, text: "Weight loss programs", selected: ref(false) },
+          { id: 17, text: "Weight loss supplements", selected: ref(false) },
+          {
+            id: 18,
+            text: "Meal replacements and shakes",
+            selected: ref(false),
+          },
+          { id: 19, text: "Other", selected: ref(false) },
+          {
+            id: 20,
+            text: "I haven't tried to lose weight",
+            selected: ref(false),
+          },
+        ],
+      },
       // Add more questions as needed
     ]);
 
@@ -92,8 +133,10 @@ export default {
       // Move to the next question
       if (currentQuestionIndex.value < questions.value.length - 1) {
         currentQuestionIndex.value++;
+      } else {
+        // If it's the last question, navigate to the next route
+        routes.push({ name: "quizThree" });
       }
-      routes.push({ name: "quizThree" });
     };
 
     return {

@@ -5,34 +5,27 @@
         class="w-full px-2 sm:px-0 lg:w-1/2 flex flex-col justify-center items-center mx-auto"
       >
         <div class="space-y-6 prose">
-          <h1>{{ selectedOption }}</h1>
+          <h1>Are you pregnant, breastfeeding, or trying to conceive?</h1>
 
-          <div class="flex items-center space-x-2 cursor-pointer border p-4">
-            <input
-              type="radio"
-              id="radioYes"
-              v-model="selectedOption"
-              value="yes"
-              class="form-radio text-primary focus:ring-2 focus:ring-primary-dark"
-            />
+          <div
+            class="flex items-center space-x-2 cursor-pointer border p-4 w-full rounded-xl"
+            @click="toggleRadio('yes')"
+          >
+            <div
+              :class="['checkmark', { checked: selectedOption === 'yes' }]"
+            ></div>
             <label for="radioYes" class="text-lg">Yes</label>
           </div>
-          <div class="flex items-center space-x-2 cursor-pointer border p-4">
-            <input
-              type="radio"
-              id="radioNo"
-              v-model="selectedOption"
-              value="no"
-              class="form-radio text-primary focus:ring-2 focus:ring-primary-dark"
-            />
+
+          <div
+            class="flex items-center space-x-2 cursor-pointer border p-4 rounded-xl"
+            @click="toggleRadio('no')"
+          >
+            <div
+              :class="['checkmark', { checked: selectedOption === 'no' }]"
+            ></div>
             <label for="radioNo" class="text-lg">No</label>
           </div>
-          <button
-            @click="continueToNextStep()"
-            class="bg-orange-700 w-full text-white py-2 px-4 rounded"
-          >
-            Continue
-          </button>
         </div>
       </div>
     </div>
@@ -47,21 +40,35 @@ export default {
 
   setup() {
     const selectedOption = ref(
-      "Are you pregnant, breastfeeding or trying to conceive?"
+      "Are you pregnant, breastfeeding, or trying to conceive?"
     );
+
+    const toggleRadio = (value) => {
+      selectedOption.value = value;
+    };
 
     return {
       selectedOption,
+      toggleRadio,
     };
   },
 };
 </script>
 
 <style>
-.form-radio:checked {
-  color: #60a5fa; /* Customize the color of the selected radio button */
+.checkmark {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #f76d57; /* Orange border color */
 }
-.focus\:ring-primary-dark:focus {
-  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5); /* Customize the focus ring color */
+
+.checkmark.checked {
+  background-color: #f76d57; /* Orange background color when checked */
+}
+
+.radio-button {
+  width: 100%;
+  text-align: center;
 }
 </style>
