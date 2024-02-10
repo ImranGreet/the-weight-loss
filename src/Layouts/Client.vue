@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import NotRecomended from "../Pages/NotRecomended.vue";
+
 import Navbar from "../components/Navs/Navbar.vue";
 
 import Footer from "../components/utility/Footer.vue";
@@ -38,9 +38,9 @@ export default {
   components: {
     Navbar,
     Footer,
-    NotRecomended,
-    recommneded,
-    toggleRecommned,
+   
+  
+   
   },
 };
 </script>
