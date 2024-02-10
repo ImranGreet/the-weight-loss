@@ -29,6 +29,8 @@
           <button
             @click="continueToNextStep()"
             class="bg-orange-700 w-full text-white py-2 px-4 rounded"
+            :class="{ 'cursor-not-allowed': isContinueButtonDisabled }"
+            :disabled="isContinueButtonDisabled"
           >
             Continue
           </button>
@@ -72,13 +74,20 @@ export default {
           { id: 7, text: "Other", selected: ref(false) },
         ],
       },
-      // Add more questions as needed
     ]);
 
     const currentQuestionIndex = ref(0);
+    const isContinueButtonDisabled = ref(true);
 
     const toggleCheckbox = (reason) => {
       reason.selected = !reason.selected;
+      updateContinueButtonState();
+    };
+
+    const updateContinueButtonState = () => {
+      isContinueButtonDisabled.value = questions.value[
+        currentQuestionIndex.value
+      ].reasons.every((reason) => !reason.selected);
     };
 
     const continueToNextStep = () => {
@@ -87,19 +96,20 @@ export default {
       ].reasons.filter((reason) => reason.selected);
       console.log("Selected Reasons:", selectedReasons);
 
-      // Add logic to handle navigation to the next question or submit the form
-
-      // Move to the next question
       if (currentQuestionIndex.value < questions.value.length - 1) {
         currentQuestionIndex.value++;
+
+        isContinueButtonDisabled.value = true;
+      } else {
+        routes.push({ name: "quizThree" });
       }
-      routes.push({ name: "quizThree" });
     };
 
     return {
       currentQuestion: questions.value[currentQuestionIndex.value],
-      continueToNextStep,
+      isContinueButtonDisabled,
       toggleCheckbox,
+      continueToNextStep,
     };
   },
 };

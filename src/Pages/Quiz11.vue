@@ -28,7 +28,9 @@
           </div>
           <button
             @click="continueToNextStep()"
+            :disabled="isContinueButtonDisabled"
             class="bg-orange-700 w-full text-white py-2 px-4 rounded"
+            :class="{ 'cursor-not-allowed': isContinueButtonDisabled }"
           >
             Continue
           </button>
@@ -39,7 +41,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
@@ -123,10 +125,19 @@ export default {
       }
     };
 
+    const isContinueButtonDisabled = computed(() => {
+      const selectedReasons = questions.value[
+        currentQuestionIndex.value
+      ].reasons.some((reason) => reason.selected);
+
+      return !selectedReasons;
+    });
+
     return {
       currentQuestion: questions.value[currentQuestionIndex.value],
       continueToNextStep,
       toggleCheckbox,
+      isContinueButtonDisabled,
     };
   },
 };

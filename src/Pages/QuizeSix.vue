@@ -6,40 +6,42 @@
           <h1>What is your biological sex?</h1>
           <div class="px-3 space-y-6">
             <label
-              class="flex items-center space-x-2 shadow border border-gray-400 p-2 cursor-pointer rounded-md"
-              @click="toggleSelected()"
+              class="flex items-center space-x-2 shadow border p-2 cursor-pointer rounded-md"
             >
               <input
-                @input="toggleSelected()"
+                @change="toggleSelected('male')"
                 type="radio"
-                id="radioYes"
+                id="radioMale"
                 name="biologicalSex"
                 class="hidden"
+                v-model="selected"
               />
               <span
                 class="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center"
-                :class="{ 'bg-white border-4 border-orange-500': !selected }"
+                :class="{
+                  'bg-white border-4 border-orange-500': selected === 'male',
+                }"
               >
-                <!-- The space in the center, orange in the border -->
               </span>
               <span class="text-xl">Male</span>
             </label>
             <label
-              class="flex items-center space-x-2 shadow border border-gray-400 p-2 cursor-pointer rounded-md"
-              @click="toggleSelected()"
+              class="flex items-center space-x-2 shadow border p-2 cursor-pointer rounded-md"
             >
               <input
-                @input="toggleSelected()"
+                @change="toggleSelected('female')"
                 type="radio"
-                id="radioNo"
+                id="radioFemale"
                 name="biologicalSex"
                 class="hidden"
+                v-model="selected"
               />
               <span
                 class="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center"
-                :class="{ 'bg-white border-4 border-orange-500': selected }"
+                :class="{
+                  'bg-white border-4 border-orange-500': selected === 'female',
+                }"
               >
-                <!-- The space in the center, orange in the border -->
               </span>
               <span class="text-xl">Female</span>
             </label>
@@ -64,18 +66,26 @@ export default {
   name: "QuizSix",
   setup() {
     const routes = useRouter();
-    const selected = ref(false);
+    const selected = ref(null);
 
-    const toggleSelected = () => {
-      selected.value = !selected.value;
-      routes.push({ name: "quizSeven" });
+    const toggleSelected = (option) => {
+      selected.value = option;
+      if (selected.value === "male" || "female") {
+        routes.push({ name: "quizSeven" });
+      }
     };
 
-    const naviagteToPage = function () {};
+    const naviagteToPage = function () {
+      if (selected.value) {
+        routes.push({ name: "quizSeven" });
+      } else {
+      }
+    };
 
     return {
       selected,
       toggleSelected,
+      naviagteToPage,
     };
   },
 };

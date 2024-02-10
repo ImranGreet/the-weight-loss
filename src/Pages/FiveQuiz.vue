@@ -35,6 +35,7 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { toggleRecommned } from "../scripts/Recommnded";
 
 export default {
   name: "GoalWeightQuestion",
@@ -47,12 +48,17 @@ export default {
 
     const toggleRadio = (value) => {
       selectedOption.value = value;
-      routes.push({ name: "quizSix" });
+      if (selectedOption.value === "yes") {
+        toggleRecommned();
+      } else {
+        routes.push({ name: "quizSix" });
+      }
     };
 
     return {
       selectedOption,
       toggleRadio,
+      toggleRecommned,
     };
   },
 };

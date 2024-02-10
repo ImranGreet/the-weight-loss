@@ -10,6 +10,7 @@
           <div
             class="flex items-center space-x-2 cursor-pointer border p-4 w-full rounded-xl"
             @click="toggleRadio('yes')"
+            :class="{ 'border-blue-500': selectedOption === 'yes' }"
           >
             <div
               :class="['checkmark', { checked: selectedOption === 'yes' }]"
@@ -20,6 +21,7 @@
           <div
             class="flex items-center space-x-2 cursor-pointer border p-4 rounded-xl"
             @click="toggleRadio('no')"
+            :class="{ 'border-blue-500': selectedOption === 'no' }"
           >
             <div
               :class="['checkmark', { checked: selectedOption === 'no' }]"
@@ -27,12 +29,20 @@
             <label for="radioNo" class="text-lg">No</label>
           </div>
 
-          <div
+          <button
+            class="p-4 rounded-lg"
             @click="naviagteToPage()"
-            class="radio-button bg-orange-700 text-white py-4 px-4 rounded-xl cursor-pointer"
+            :class="[
+              'radio-button',
+              {
+                'bg-orange-700': selectedOption !== '',
+                'bg-gray-400': selectedOption === '',
+              },
+            ]"
+            :disabled="selectedOption === ''"
           >
             Continue
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -42,29 +52,33 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { toggleRecommned } from "../scripts/Recommnded";
 
 export default {
   name: "GoalWeightQuestion",
 
   setup() {
     const routes = useRouter();
+    const selectedOption = ref("");
 
     const naviagteToPage = function () {
-      routes.push({ name: "quizFive" });
+      console.log(selectedOption.value, "select");
+      if (selectedOption.value === "yes") {
+        routes.push({ name: "quizFive" });
+      } else {
+        toggleRecommned();
+      }
     };
 
-    const selectedOption = ref(
-      "Do you have a goal weight you would like to achieve?"
-    );
-
     const toggleRadio = (value) => {
-      routes.push({ name: "quizFive" });
+      selectedOption.value = value;
     };
 
     return {
       selectedOption,
       naviagteToPage,
       toggleRadio,
+      toggleRecommned,
     };
   },
 };
@@ -85,10 +99,18 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 70%;
+  border: 2px solid #60a5fa; /* Add border color for the selected state */
 }
 
 .radio-button {
   width: 100%;
   text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.radio-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 </style>

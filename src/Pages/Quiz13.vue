@@ -29,7 +29,7 @@
                     id="radioYes"
                     name="answer"
                     class="hidden"
-                    @click="selectOption(true)"
+                    @change="selectOption(true)"
                   />
                   <span
                     class="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center"
@@ -53,7 +53,7 @@
                     id="radioNo"
                     name="answer"
                     class="hidden"
-                    @click="selectOption(false)"
+                    @change="selectOption(false)"
                   />
                   <span
                     class="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center"
@@ -88,6 +88,7 @@ export default {
 
     const selectOption = function (option) {
       selected.value = option;
+      console.log(selected.value);
 
       if (selected.value) {
         toggleRecommned();

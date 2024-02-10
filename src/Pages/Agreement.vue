@@ -40,23 +40,32 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import { useRouter } from "vue-router";
+import { toggleRecommned } from "../scripts/Recommnded";
 
 export default {
   name: "Agreement",
   setup() {
+    
+    
+
     const routes = useRouter();
     const selected = ref(false);
 
     const naviagteToPage = function () {
       selected.value = !selected.value;
-      routes.push({ name: "quizTwo" });
+      if (selected.value) {
+        toggleRecommned();
+      } else {
+        routes.push({ name: "quizTwo" });
+      }
     };
 
     return {
       selected,
       naviagteToPage,
+      toggleRecommned,
     };
   },
 };
