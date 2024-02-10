@@ -14,7 +14,7 @@
           </p>
           <router-link
             :to="{ name: 'quiz' }"
-            class="bg-primary px-5 py-3 rounded-md border border-white w-full sm:w-auto"
+            class="bg-primary px-5 py-3 rounded-md border border-white w-full sm:w-auto no-underline"
           >
             Am I Eligible
           </router-link>

@@ -31,21 +31,6 @@
       </div>
     </div>
     <div class="w-full h-10 lg:h-14 xl:h-20"></div>
-    <!-- accordion -->
-    <div
-      class="w-full flex flex-col justify-between items-start sm:flex-row px-6 xl:px-0 sm:gap-x-5 lg:gap-x-10 xl:gap-x-48"
-    >
-      <div class="prose max-w-none space-y-3">
-        <h1>Introducing a new way to lose weight</h1>
-        <p>
-          Kickstart your weight loss with breakthrough medication and achieve
-          lasting results with a personalised program.
-        </p>
-      </div>
-      <div class="w-full">
-        <Accordion />
-      </div>
-    </div>
   </section>
 </template>
 

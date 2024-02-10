@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full h-[70vh] rounded-[36px] lg:rounded-[85px]">
+  <section class="w-full xl:h-[70vh] rounded-[36px] lg:rounded-[85px]">
     <div class="w-full h-20"></div>
     <div
       class="max-w-full lg:max-w-7xl mx-auto flex flex-col justify-center items-center px-5 xl:px-0"
@@ -9,7 +9,7 @@
         <h1 class="text-4xl">Your weight loss journey</h1>
       </div>
       <div class="w-full h-20"></div>
-      <div class="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center	">
+      <div class="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center">
         <WeightlossJourney
           v-for="(step, index) in weightLossSteps"
           :key="index"
