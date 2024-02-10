@@ -13,7 +13,7 @@
         <router-link to="#">Login</router-link>
       </div>
     </div>
-    <div class="block sm:hidden z-[999] absolute inset-x-0 inset-y-0">
+    <div class="block sm:hidden z-[999] absolute inset-x-0">
       <Mobilenav />
     </div>
   </section>
