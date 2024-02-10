@@ -47,17 +47,12 @@ import { toggleRecommned } from "../scripts/Recommnded";
 export default {
   name: "Agreement",
   setup() {
-    
-    
-
     const routes = useRouter();
     const selected = ref(false);
 
     const naviagteToPage = function () {
       selected.value = !selected.value;
       if (selected.value) {
-        toggleRecommned();
-      } else {
         routes.push({ name: "quizTwo" });
       }
     };
