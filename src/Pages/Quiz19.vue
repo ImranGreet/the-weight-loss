@@ -62,17 +62,17 @@
 <script>
 import { onMounted, onUnmounted, ref } from "vue";
 import { useRouter } from "vue-router";
-import { toggleRecommned } from "../scripts/Recommnded";
+import { toggleRecommned, recommneded } from "../scripts/Recommnded";
 
 export default {
   name: "AllergiesQuestion",
   setup() {
     onUnmounted(() => {
-      toggleRecommned();
+      if (recommneded.value) {
+        toggleRecommned();
+      }
     });
-    onMounted(() => {
-      toggleRecommned();
-    });
+
     const routes = useRouter();
     const selected = ref("true");
 
@@ -91,6 +91,7 @@ export default {
     return {
       selected,
       handleButtonClick,
+      recommneded,
     };
   },
 };

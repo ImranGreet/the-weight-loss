@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { recommneded, toggleRecommned } from "../scripts/Recommnded";
 
@@ -82,11 +82,12 @@ export default {
   name: "AllergiesQuestion",
 
   setup() {
-    onMounted(() => {
-      toggleRecommned();
-    });
-    onMounted(() => {
-      toggleRecommned();
+    onUnmounted(() => {
+      onUnmounted(() => {
+        if (recommneded.value) {
+          toggleRecommned();
+        }
+      });
     });
     const routes = useRouter();
 
@@ -109,6 +110,7 @@ export default {
       naviagteToPage,
       toggleRadio,
       toggleRecommned,
+      recommneded,
     };
   },
 };
