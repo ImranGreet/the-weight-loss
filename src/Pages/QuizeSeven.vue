@@ -77,7 +77,7 @@ export default {
       if (currentQuestionIndex.value < questions.value.length - 1) {
         currentQuestionIndex.value++;
       }
-      routes.push({ name: "quizThree" });
+      routes.push({ name: "quizEight" });
     };
 
     return {

@@ -34,17 +34,20 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   name: "GoalWeightQuestion",
 
   setup() {
+    const routes = useRouter();
     const selectedOption = ref(
       "Are you pregnant, breastfeeding, or trying to conceive?"
     );
 
     const toggleRadio = (value) => {
       selectedOption.value = value;
+      routes.push({ name: "quizSix" });
     };
 
     return {

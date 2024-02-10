@@ -82,6 +82,7 @@ export default {
     };
 
     const continueToNextStep = () => {
+      routes.push({ name: "quiz11" });
       const selectedReasons = questions.value[
         currentQuestionIndex.value
       ].reasons.filter((reason) => reason.selected);
@@ -94,7 +95,6 @@ export default {
         currentQuestionIndex.value++;
       } else {
         // If it's the last question, navigate to the next route
-        routes.push({ name: "quizThree" });
       }
     };
 

@@ -58,14 +58,17 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   name: "QuizSix",
   setup() {
+    const routes = useRouter();
     const selected = ref(false);
 
     const toggleSelected = () => {
       selected.value = !selected.value;
+      routes.push({ name: "quizSeven" });
     };
 
     const naviagteToPage = function () {};
