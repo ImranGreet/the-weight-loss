@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { onMounted } from "vue";
 import NotRecomended from "../Pages/NotRecomended.vue";
 import { recommneded, toggleRecommned } from "../scripts/Recommnded";
 
@@ -29,6 +30,11 @@ export default {
   name: "quiz",
   components: { NotRecomended },
   setup() {
+    onMounted(() => {
+      if (recommneded.value) {
+        toggleRecommned();
+      }
+    });
     return {
       recommneded,
       toggleRecommned,
