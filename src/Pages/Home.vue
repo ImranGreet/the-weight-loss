@@ -26,7 +26,7 @@
             </p>
             <div class="w-full h-5"></div>
             <router-link
-              to="#"
+              :to="{ name: 'quiz' }"
               class="px-20 py-3 rounded-md border border-white w-full sm:w-auto no-underline"
             >
               Am I Eligible
@@ -35,7 +35,6 @@
         </div>
       </div>
     </Paralax>
-    
   </section>
 </template>
 
