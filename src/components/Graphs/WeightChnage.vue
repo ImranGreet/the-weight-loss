@@ -79,6 +79,15 @@ export default {
       maintainAspectRatio: true,
       width: 400,
       height: 200,
+      animations: {
+        tension: {
+          duration: 8000,
+          easing: "linear",
+          from: 1,
+          to: 0,
+          loop: true,
+        },
+      },
     };
     return {
       data,
