@@ -2,7 +2,7 @@
   <section
     class="w-full min-h-screen flex flex-col justify-center items-center"
   >
-    <div class="w-2/3 mx-auto">
+    <div class="w-full md:w-2/3 mx-auto">
       <div class="w-full text-center">
         <div class="flex flex-col justify-center items-center gap-y-4">
           <div class="w-full prose texr-center">
