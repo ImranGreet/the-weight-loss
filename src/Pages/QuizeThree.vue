@@ -12,6 +12,7 @@
               type="number"
               class="w-full rounded-lg p-3 bg-inherit"
               placeholder="cms"
+              v-model="height"
             />
           </div>
           <div class="flex flex-col items-start cursor-pointer p-4">
@@ -20,6 +21,7 @@
               type="number"
               class="w-full p-3 rounded-lg bg-inherit"
               placeholder="kgs"
+              v-model="weight"
             />
           </div>
           <button
@@ -34,21 +36,55 @@
   </section>
 </template>
 
+
+
 <script>
 import { ref } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
+import { toggleRecommned } from "../scripts/Recommnded";
 
 export default {
   name: "WeightLossQuestionnaire",
   setup() {
     const routes = useRouter();
-    const naviagteToPage = function () {
-      routes.push({ name: "quizFour" });
+
+    let question = "What is your height and weight?";
+    let height = ref("");
+    let weight = ref("");
+
+    let isAllowedToAdmin = function () {
+      let parsedHeight = parseFloat(height.value);
+      let parsedWeight = parseFloat(weight.value);
+
+      if (
+        isNaN(parsedHeight) ||
+        isNaN(parsedWeight) ||
+        parsedHeight <= 0 ||
+        parsedWeight <= 0
+      ) {
+        alert("Please enter valid and positive numbers for height and weight.");
+        return;
+      }
+
+      let ratio = [2, 3, 1];
+      let expected = ratio.includes(Math.floor(parsedHeight / parsedWeight));
+
+      if (expected) {
+        routes.push({ name: "quizFour" });
+      } else {
+        toggleRecommned();
+      }
     };
-    let question = "What is your height and weight?s";
+
+    const naviagteToPage = function () {
+      isAllowedToAdmin();
+    };
+
     return {
       question,
       naviagteToPage,
+      height,
+      weight,
     };
   },
 };
@@ -62,3 +98,4 @@ export default {
   box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5); /* Customize the focus ring color */
 }
 </style>
+
