@@ -10,23 +10,29 @@
             <label for="height" class="text-lg">Height</label>
             <input
               type="number"
-              class="w-full rounded-lg p-3 bg-inherit"
+              class="w-full rounded-lg p-3 bg-inherit border focus:outline-none"
               placeholder="cms"
               v-model="height"
+              @change="validateHeight"
             />
+            <p v-if="heightError" class="text-red-500">{{ heightError }}</p>
           </div>
           <div class="flex flex-col items-start cursor-pointer p-4">
-            <label for="height" class="text-lg">Weight</label>
+            <label for="weight" class="text-lg">Weight</label>
             <input
               type="number"
-              class="w-full p-3 rounded-lg bg-inherit"
+              class="w-full p-3 rounded-lg bg-inherit border focus:outline-none"
               placeholder="kgs"
               v-model="weight"
+              @change="validateWeight"
             />
+            <p v-if="weightError" class="text-red-500">{{ weightError }}</p>
           </div>
           <button
-            @click="naviagteToPage()"
+            @click="naviagteToPage"
+            :disabled="hasErrors"
             class="bg-orange-700 w-full text-white py-2 px-4 rounded"
+            :class="{ 'cursor-not-allowed': hasErrors }"
           >
             Continue
           </button>
@@ -36,12 +42,9 @@
   </section>
 </template>
 
-
-
 <script>
-import { onUnmounted, ref } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { recommneded, toggleRecommned } from "../scripts/Recommnded";
 
 export default {
   name: "WeightLossQuestionnaire",
@@ -51,33 +54,49 @@ export default {
     let question = "What is your height and weight?";
     let height = ref("");
     let weight = ref("");
+    let heightError = ref("");
+    let weightError = ref("");
+    let hasErrors = ref(false);
+
+    let validateHeight = function () {
+      let parsedHeight = parseFloat(height.value);
+      if (isNaN(parsedHeight) || parsedHeight < 90 || parsedHeight > 230) {
+        heightError.value = "This doesn't look right, enter your height in cm.";
+      } else {
+        heightError.value = "";
+      }
+
+      hasErrors.value = Boolean(heightError.value || weightError.value);
+    };
+
+    let validateWeight = function () {
+      let parsedWeight = parseFloat(weight.value);
+      if (isNaN(parsedWeight) || parsedWeight < 22 || parsedWeight > 444) {
+        weightError.value = "This doesn't look right, enter your weight in kg.";
+      } else {
+        weightError.value = "";
+      }
+
+      hasErrors.value = Boolean(heightError.value || weightError.value);
+    };
 
     let isAllowedToAdmin = function () {
-      let parsedHeight = parseFloat(height.value);
-      let parsedWeight = parseFloat(weight.value);
+      validateHeight();
+      validateWeight();
 
-      if (
-        isNaN(parsedHeight) ||
-        isNaN(parsedWeight) ||
-        parsedHeight <= 0 ||
-        parsedWeight <= 0
-      ) {
-        alert("Please enter valid and positive numbers for height and weight.");
-        return;
+      hasErrors.value = Boolean(heightError.value || weightError.value);
+
+      if (!hasErrors.value) {
+        alert("All inputs are valid. Proceeding...");
+        return true;
       }
 
-      let ratio = [2, 3, 1];
-      let expected = ratio.includes(Math.floor(parsedHeight / parsedWeight));
-
-      if (expected) {
-        routes.push({ name: "quizFour" });
-      } else {
-        toggleRecommned();
-      }
+      return false;
     };
 
     const naviagteToPage = function () {
-      isAllowedToAdmin();
+      if (isAllowedToAdmin()) {
+      }
     };
 
     return {
@@ -85,6 +104,11 @@ export default {
       naviagteToPage,
       height,
       weight,
+      heightError,
+      weightError,
+      hasErrors,
+      validateHeight,
+      validateWeight,
     };
   },
 };
@@ -98,4 +122,3 @@ export default {
   box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5); /* Customize the focus ring color */
 }
 </style>
-
