@@ -39,13 +39,18 @@
 
 
 <script>
-import { ref } from "vue";
+import { onUnmounted, ref } from "vue";
 import { useRouter } from "vue-router";
-import { toggleRecommned } from "../scripts/Recommnded";
+import { recommneded, toggleRecommned } from "../scripts/Recommnded";
 
 export default {
   name: "WeightLossQuestionnaire",
   setup() {
+    onUnmounted(() => {
+      if (recommneded) {
+        toggleRecommned();
+      }
+    });
     const routes = useRouter();
 
     let question = "What is your height and weight?";
