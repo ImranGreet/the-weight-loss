@@ -85,7 +85,7 @@ export default {
     };
 
     const continueToNextStep = () => {
-      routes.push({ name: "quiz23" });
+      routes.push({ name: "assesment" });
       if (currentQuestionIndex.value < questions.value.length - 1) {
         currentQuestionIndex.value++;
       }

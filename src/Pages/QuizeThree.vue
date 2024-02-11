@@ -45,6 +45,8 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { toggleRecommned } from "../scripts/Recommnded";
+import { weightOfApplicant, heightOfApplicant } from "../scripts/calculatation";
 
 export default {
   name: "WeightLossQuestionnaire",
@@ -80,6 +82,17 @@ export default {
       hasErrors.value = Boolean(heightError.value || weightError.value);
     };
 
+    //calculate BMI
+    function calcculateBMI() {
+      let heightInMeters = height.value / 100;
+      let BMI = Math.ceil(weight.value / heightInMeters ** 2);
+      if (BMI >= 25) {
+        routes.push({ name: "quizFour" });
+      } else {
+        toggleRecommned();
+      }
+    }
+
     let isAllowedToAdmin = function () {
       validateHeight();
       validateWeight();
@@ -87,7 +100,6 @@ export default {
       hasErrors.value = Boolean(heightError.value || weightError.value);
 
       if (!hasErrors.value) {
-        alert("All inputs are valid. Proceeding...");
         return true;
       }
 
@@ -96,6 +108,10 @@ export default {
 
     const naviagteToPage = function () {
       if (isAllowedToAdmin()) {
+        calcculateBMI();
+        weightOfApplicant.value = weight.value;
+        heightOfApplicant.value = height.value;
+        console.log(weightOfApplicant.value);
       }
     };
 

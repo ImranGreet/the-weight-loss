@@ -138,6 +138,11 @@ const routes = [
         name: "quiz22",
         component: () => import("../Pages/Quiz22.vue"),
       },
+      {
+        path: "/n/weight-loss/assesment",
+        name: "assesment",
+        component: () => import("../Pages/Assesment.vue"),
+      },
     ],
   },
 ];
