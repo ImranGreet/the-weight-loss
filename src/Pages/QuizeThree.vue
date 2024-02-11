@@ -46,11 +46,6 @@ import { recommneded, toggleRecommned } from "../scripts/Recommnded";
 export default {
   name: "WeightLossQuestionnaire",
   setup() {
-    onUnmounted(() => {
-      if (recommneded) {
-        toggleRecommned();
-      }
-    });
     const routes = useRouter();
 
     let question = "What is your height and weight?";
