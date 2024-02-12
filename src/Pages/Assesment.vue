@@ -1,10 +1,10 @@
 <template>
   <section
-    class="w-full min-h-screen flex flex-col justify-center items-center"
+    class="w-full min-h-screen flex flex-col justify-center items-center bg-primary"
   >
-    <div class="w-full md:w-2/3 mx-auto">
+    <div class="w-full md:w-[750px] mx-auto bg-primary/15">
       <div class="w-full text-center">
-        <div class="flex flex-col justify-center items-center gap-y-4">
+        <div class="flex flex-col justify-center items-center gap-y-4 py-8">
           <div class="w-full prose texr-center">
             <h3>Your assessment</h3>
             <div class="w-full flex flex-col justify-center items-center">
@@ -18,7 +18,7 @@
                 <p>Medical Director</p>
               </div>
               <div>
-                <h1>You are currenly {{ weightOfApplicant }} kgs</h1>
+                <h2>You are currenly {{ weightOfApplicant }} kgs</h2>
                 <h4>Your goals Became more active</h4>
               </div>
               <div>

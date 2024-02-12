@@ -64,7 +64,7 @@ export default {
     const naviagteToPage = function () {
       console.log(selectedOption.value, "select");
       if (selectedOption.value === "yes") {
-        routes.push({ name: "quizFive" });
+        routes.push({ name: "quizSix" });
       } else {
         toggleRecommned();
       }

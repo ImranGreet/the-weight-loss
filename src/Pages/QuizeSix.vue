@@ -71,7 +71,7 @@ export default {
     const toggleSelected = (option) => {
       selected.value = option;
       if (selected.value === "male" || "female") {
-        routes.push({ name: "quizSeven" });
+        routes.push({ name: "quizFive" });
       }
     };
 
