@@ -45,12 +45,6 @@
               </span>
               <span class="text-xl">Female</span>
             </label>
-            <button
-              @click="naviagteToPage()"
-              class="bg-orange-700 w-full py-2 px-4 rounded"
-            >
-              Continue
-            </button>
           </div>
         </div>
       </div>
@@ -70,22 +64,16 @@ export default {
 
     const toggleSelected = (option) => {
       selected.value = option;
-      if (selected.value === "male" || "female") {
-        routes.push({ name: "quizFive" });
-      }
-    };
-
-    const naviagteToPage = function () {
-      if (selected.value) {
+      if (selected.value === "female") {
         routes.push({ name: "quizSeven" });
       } else {
+        routes.push({ name: "quizNine" });
       }
     };
 
     return {
       selected,
       toggleSelected,
-      naviagteToPage,
     };
   },
 };

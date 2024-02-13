@@ -51,7 +51,7 @@ export default {
       if (selectedOption.value === "yes") {
         toggleRecommned();
       } else {
-        routes.push({ name: "quizSeven" });
+        routes.push({ name: "quizEight" });
       }
     };
 

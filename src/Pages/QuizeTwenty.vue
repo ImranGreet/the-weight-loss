@@ -47,7 +47,7 @@
               <span class="text-xl">No</span>
             </label>
             <button
-              @click="handleButtonClick"
+              @click="navigateToPage"
               class="bg-orange-700 w-full py-2 px-4 rounded"
             >
               Continue
@@ -78,20 +78,21 @@ export default {
 
     const handleButtonClick = function () {
       if (selected.value === "true") {
-        toggleRecommned();
+        routes.push({ name: "quiz21" });
       } else {
-        navigateToPage();
+        routes.push({ name: "quiz23" });
       }
     };
 
     const navigateToPage = function () {
-      routes.push({ name: "quiz20" });
+      handleButtonClick();
     };
 
     return {
       selected,
       handleButtonClick,
       recommneded,
+      navigateToPage,
     };
   },
 };

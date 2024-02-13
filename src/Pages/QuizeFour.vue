@@ -28,21 +28,6 @@
             ></div>
             <label for="radioNo" class="text-lg">No</label>
           </div>
-
-          <button
-            class="p-4 rounded-lg"
-            @click="naviagteToPage()"
-            :class="[
-              'radio-button',
-              {
-                'bg-orange-700': selectedOption !== '',
-                'bg-gray-400': selectedOption === '',
-              },
-            ]"
-            :disabled="selectedOption === ''"
-          >
-            Continue
-          </button>
         </div>
       </div>
     </div>
@@ -64,53 +49,23 @@ export default {
     const naviagteToPage = function () {
       console.log(selectedOption.value, "select");
       if (selectedOption.value === "yes") {
-        routes.push({ name: "quizSix" });
+        routes.push({ name: "quizFive" });
       } else {
-        toggleRecommned();
+        routes.push({ name: "quizSix" });
       }
     };
 
     const toggleRadio = (value) => {
       selectedOption.value = value;
+      // Automatically navigate when an option is selected
+      naviagteToPage();
     };
 
     return {
       selectedOption,
-      naviagteToPage,
       toggleRadio,
       toggleRecommned,
     };
   },
 };
 </script>
-
-<style>
-.checkmark {
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  border: 1px solid #ccc;
-  background-color: #fff;
-}
-
-.checkmark.checked {
-  background-color: #60a5fa;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path fill="%23ffffff" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 70%;
-  border: 2px solid #60a5fa; /* Add border color for the selected state */
-}
-
-.radio-button {
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
-}
-
-.radio-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-</style>

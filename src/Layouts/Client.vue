@@ -1,6 +1,7 @@
 <template>
   <section class="w-full flex flex-col justify-between min-h-screen relative">
     <Navbar></Navbar>
+    
     <router-view />
     <Footer />
     <div class="w-full fixed -bottom-2 inset-x-0 h-20 shadow-md sm:bg-primary">
@@ -22,25 +23,19 @@
         </div>
       </div>
     </div>
-    
   </section>
 </template>
 
 <script>
-
 import Navbar from "../components/Navs/Navbar.vue";
 
 import Footer from "../components/utility/Footer.vue";
-
 
 export default {
   name: "Client",
   components: {
     Navbar,
     Footer,
-   
-  
-   
   },
 };
 </script>

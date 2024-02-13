@@ -51,7 +51,7 @@ const routes = [
       {
         path: "/n/weight-loss/quiz/5",
         name: "quizFive",
-        component: () => import("../Pages/FiveQuiz.vue"),
+        component: () => import("../Pages/Goal.vue"),
       },
       {
         path: "/n/weight-loss/quiz/6",
@@ -61,27 +61,27 @@ const routes = [
       {
         path: "/n/weight-loss/quiz/7",
         name: "quizSeven",
-        component: () => import("../Pages/QuizeSeven.vue"),
+        component: () => import("../Pages/Quize7.vue"),
       },
       {
         path: "/n/weight-loss/quiz/8",
         name: "quizEight",
-        component: () => import("../Pages/QuizeEight.vue"),
+        component: () => import("../Pages/Quize8.vue"),
       },
       {
         path: "/n/weight-loss/quiz/9",
         name: "quizNine",
-        component: () => import("../Pages/QuizNine.vue"),
-      },
-      {
-        path: "/n/weight-loss/quiz/10",
-        name: "quizTen",
-        component: () => import("../Pages/QuizTen.vue"),
+        component: () => import("../Pages/Quize9.vue"),
       },
       {
         path: "/n/weight-loss/quiz/11",
-        name: "quiz11",
-        component: () => import("../Pages/Quiz11.vue"),
+        name: "quizEleven",
+        component: () => import("../Pages/QuizEleven.vue"),
+      },
+      {
+        path: "/n/weight-loss/quiz/10",
+        name: "quizeTen",
+        component: () => import("../Pages/Quiz10.vue"),
       },
       {
         path: "/n/weight-loss/quiz/12",
@@ -91,17 +91,17 @@ const routes = [
       {
         path: "/n/weight-loss/quiz/13",
         name: "quiz13",
-        component: () => import("../Pages/Quiz13.vue"),
+        component: () => import("../Pages/QuizeThirteen.vue"),
       },
       {
         path: "/n/weight-loss/quiz/14",
         name: "quiz14",
-        component: () => import("../Pages/Quiz14.vue"),
+        component: () => import("../Pages/QuizFourteen.vue"),
       },
       {
         path: "/n/weight-loss/quiz/15",
         name: "quiz15",
-        component: () => import("../Pages/Quiz15.vue"),
+        component: () => import("../Pages/QuizFifteen.vue"),
       },
       {
         path: "/n/weight-loss/quiz/16",
@@ -111,33 +111,39 @@ const routes = [
       {
         path: "/n/weight-loss/quiz/17",
         name: "quiz17",
-        component: () => import("../Pages/Quiz17.vue"),
+        component: () => import("../Pages/QuizSeventeen.vue"),
       },
       {
         path: "/n/weight-loss/quiz/18",
         name: "quiz18",
-        component: () => import("../Pages/Quiz18.vue"),
+        component: () => import("../Pages/QuizeEighteen.vue"),
       },
       {
         path: "/n/weight-loss/quiz/19",
         name: "quiz19",
-        component: () => import("../Pages/Quiz19.vue"),
+        component: () => import("../Pages/QuizeNinteen.vue"),
       },
       {
         path: "/n/weight-loss/quiz/20",
         name: "quiz20",
-        component: () => import("../Pages/Quiz20.vue"),
+        component: () => import("../Pages/QuizeTwenty.vue"),
       },
       {
         path: "/n/weight-loss/quiz/21",
         name: "quiz21",
-        component: () => import("../Pages/Quiz21.vue"),
+        component: () => import("../Pages/QuizeTwentyOne.vue"),
       },
       {
         path: "/n/weight-loss/quiz/22",
         name: "quiz22",
         component: () => import("../Pages/Quiz22.vue"),
       },
+      {
+        path: "/n/weight-loss/quiz/23",
+        name: "quiz23",
+        component: () => import("../Pages/Quiz23.vue"),
+      },
+
       {
         path: "/n/weight-loss/assesment",
         name: "assesment",

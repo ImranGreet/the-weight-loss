@@ -21,11 +21,13 @@ const genericOptions = {
     x: {
       grid: {
         drawOnChartArea: false,
+        display: false,
       },
     },
     y: {
       grid: {
         drawOnChartArea: false,
+        display: false,
       },
     },
   },

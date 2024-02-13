@@ -3,21 +3,22 @@
     <div class="w-full h-full flex flex-col justify-center items-center">
       <div class="w-full px-2 sm:px-0 lg:w-1/3 mx-auto">
         <div class="space-y-2 prose">
-          <h1>Do you suffer from any of the following?</h1>
+          <h1>Have you been diagnosed with any of these medical conditions?</h1>
           <div class="px-3">
             <ol class="list-disc">
-              <li>Liver, kidney, or heart failure</li>
-              <li>Pancreatitis</li>
-              <li>Multiple endocrine neoplasia type 2</li>
-              <li>Cancer</li>
-              <li>Type 1 diabetes or diabetic retinopathy</li>
-              <li>Personal or family history of medullary thyroid cancer</li>
-              <li>
-                A current eating disorder or a history of an eating disorder?
-                (e.g., anorexia, bulimia, binge eating disorder)
-              </li>
-              <li>History of gallbladder problem</li>
-              <li>History of Inflammatory bowel disease or gastroparesis</li>
+              <li>Type 2 diabetes</li>
+              <li>High blood pressure</li>
+              <li>High cholesterol</li>
+              <li>Erectile dysfunction</li>
+              <li>Sleep apnoea</li>
+              <li>Asthma</li>
+              <li>Gallbladder disease</li>
+              <li>Osteoarthritis</li>
+              <li>Chronic back pain</li>
+              <li>Depression</li>
+              <li>PCOS</li>
+              <li>Fatty liver disease</li>
+              <li>Chronic malabsorption syndrome</li>
             </ol>
             <div class="flex flex-col items-center w-full space-y-4">
               <div class="flex flex-col items-center w-full">
@@ -61,7 +62,7 @@
                   >
                     <span
                       v-if="selected === false"
-                      class="inner-circle w-3 rounded-full bg-white"
+                      class="inner-circle w-3 h-3 rounded-full bg-white"
                     ></span>
                   </span>
                   <span class="text-xl">No</span>
@@ -81,19 +82,20 @@ import { useRouter } from "vue-router";
 import { recommneded, toggleRecommned } from "../scripts/Recommnded";
 
 export default {
-  name: "Agreement",
+  name: "MedicalConditions",
   setup() {
     const routes = useRouter();
     const selected = ref(null);
 
     const selectOption = function (option) {
       selected.value = option;
-      console.log(selected.value);
 
       if (selected.value) {
-        toggleRecommned();
+        console.log(selected.value, "pop");
+        routes.push({ name: "quiz16" });
+        console.log(recommneded.value);
       } else {
-        routes.push({ name: "quiz14" });
+        toggleRecommned();
       }
     };
 

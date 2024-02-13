@@ -10,6 +10,7 @@
             v-for="reason in currentQuestion.reasons"
             :key="reason.id"
             class="flex items-center space-x-2 cursor-pointer border p-4 rounded-lg"
+            :class="{ 'border-orange-500': reason.selected }"
             @click="toggleCheckbox(reason)"
           >
             <input
@@ -27,10 +28,10 @@
             </label>
           </div>
           <button
-            @click="continueToNextStep"
+            @click="continueToNextStep()"
             class="bg-orange-700 w-full text-white py-2 px-4 rounded"
-            :disabled="!anyReasonSelected"
-            :class="{ 'cursor-not-allowed': !anyReasonSelected }"
+            :class="{ 'cursor-not-allowed': isContinueButtonDisabled }"
+            :disabled="isContinueButtonDisabled"
           >
             Continue
           </button>
@@ -41,7 +42,7 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 export default {
@@ -51,57 +52,59 @@ export default {
     const questions = ref([
       {
         id: 1,
-        text: "When considering treatment options, which of the following are important to you?",
+        text: "What challenges have you faced when trying to stay on track with your weight loss?",
         reasons: [
-          {
-            id: 1,
-            text: "I want to minimise the risk of common side effects, e.g., nausea",
-            selected: ref(false),
-          },
+          { id: 1, text: "I lose motivation", selected: ref(false) },
           {
             id: 2,
-            text: "I want to maximise my results",
+            text: "I find it difficult to be consistent",
             selected: ref(false),
           },
-          {
-            id: 3,
-            text: "I want an easy and convenient option",
-            selected: ref(false),
-          },
+          { id: 3, text: "I do not have enough time", selected: ref(false) },
           {
             id: 4,
-            text: "I want something that helps me stay consistent",
+            text: "I lose weight then put it back on",
             selected: ref(false),
           },
-          { id: 5, text: "None of the above", selected: ref(false) },
+          { id: 5, text: "Other", selected: ref(false) },
         ],
       },
     ]);
 
     const currentQuestionIndex = ref(0);
+    const isContinueButtonDisabled = ref(true);
 
     const toggleCheckbox = (reason) => {
       reason.selected = !reason.selected;
+      updateContinueButtonState();
+    };
+
+    const updateContinueButtonState = () => {
+      isContinueButtonDisabled.value = questions.value[
+        currentQuestionIndex.value
+      ].reasons.every((reason) => !reason.selected);
     };
 
     const continueToNextStep = () => {
-      routes.push({ name: "assesment" });
+      const selectedReasons = questions.value[
+        currentQuestionIndex.value
+      ].reasons.filter((reason) => reason.selected);
+      console.log("Selected Reasons:", selectedReasons);
+
       if (currentQuestionIndex.value < questions.value.length - 1) {
         currentQuestionIndex.value++;
+
+        isContinueButtonDisabled.value = true;
+      } else {
+        routes.push({ name: "quiz14" });
       }
     };
 
-    const anyReasonSelected = computed(() => {
-      return questions.value[currentQuestionIndex.value].reasons.some(
-        (reason) => reason.selected
-      );
-    });
-
     return {
       currentQuestion: questions.value[currentQuestionIndex.value],
-      continueToNextStep,
+      isContinueButtonDisabled,
       toggleCheckbox,
-      anyReasonSelected,
+      continueToNextStep,
     };
   },
 };

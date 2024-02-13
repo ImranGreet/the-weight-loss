@@ -4,7 +4,7 @@
       <div
         class="w-full px-2 sm:px-0 lg:w-1/2 flex flex-col justify-center items-center mx-auto"
       >
-        <div class="space-y-6 prose">
+        <div class="space-y-4 prose">
           <h1>{{ currentQuestion.text }}</h1>
           <div
             v-for="reason in currentQuestion.reasons"
@@ -45,33 +45,30 @@ import { ref, computed } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 export default {
-  name: "WeightLossQuestionnaire",
+  name: "Quize10",
   setup() {
     const routes = useRouter();
     const questions = ref([
       {
         id: 1,
-        text: "What challenges have you faced with exercise or trying to be more active?",
+        text: "What have you tried in the past to lose weight?",
         reasons: [
-          { id: 1, text: "I do not have enough time", selected: ref(false) },
-          { id: 2, text: "I lose motivation", selected: ref(false) },
           {
-            id: 3,
-            text: "Injury / illness makes it difficult",
+            id: 1,
+            text: "Exercise or being more active",
             selected: ref(false),
           },
-          { id: 4, text: "I do not find it enjoyable", selected: ref(false) },
-          {
-            id: 5,
-            text: "I feel uncomfortable exercising in front of others",
-            selected: ref(false),
-          },
-          {
-            id: 6,
-            text: "I haven’t tried to be more active",
-            selected: ref(false),
-          },
+          { id: 2, text: "Dieting", selected: ref(false) },
+          { id: 3, text: "Calorie counting", selected: ref(false) },
+          { id: 4, text: "Weight loss programs", selected: ref(false) },
+          { id: 5, text: "Weight loss supplements", selected: ref(false) },
+          { id: 6, text: "Meal replacements and shakes", selected: ref(false) },
           { id: 7, text: "Other", selected: ref(false) },
+          {
+            id: 8,
+            text: "I haven't tried to lose weight",
+            selected: ref(false),
+          },
         ],
       },
       // Add more questions as needed
@@ -84,7 +81,7 @@ export default {
     };
 
     const continueToNextStep = () => {
-      routes.push({ name: "quiz11" });
+      routes.push({ name: "quizEleven" });
       const selectedReasons = questions.value[
         currentQuestionIndex.value
       ].reasons.filter((reason) => reason.selected);

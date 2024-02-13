@@ -86,7 +86,7 @@ export default {
         toggleRecommned();
         console.log(recommneded.value);
       } else {
-        routes.push({ name: "quiz16" });
+        routes.push({ name: "quiz18" });
       }
     };
 
