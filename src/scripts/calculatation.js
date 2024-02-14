@@ -15,10 +15,10 @@ const Totalmonths = [
   "December",
 ];
 
-let weightOfApplicant = ref();
-let heightOfApplicant = ref();
+let weightOfApplicant = ref(0);
+let heightOfApplicant = ref(0);
 let expectedLoss = ref();
 
-let remainingWeights = [];
+let remainingWeights = ref([]);
 
 export { weightOfApplicant, heightOfApplicant, remainingWeights };

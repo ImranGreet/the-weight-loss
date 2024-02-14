@@ -1,11 +1,32 @@
-import {
-  weightOfApplicant,
-  heightOfApplicant,
-  remainingWeights,
-} from "../scripts/calculatation";
+const data = [141, 132, 123, 114, 105, 96];
 
-const data = remainingWeights;
-const len = data.length;
+const len = data.length - 1;
+
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const currentMonth = new Date().getMonth();
+const resultArray = [];
+
+for (
+  let i = currentMonth;
+  i < months.length && resultArray.length < 5;
+  i += 2
+) {
+  resultArray.push(months[i]);
+}
 
 const skipped = (ctx, value) => {
   return ctx?.p1DataIndex == len - 1 ? value : undefined;
@@ -40,7 +61,7 @@ const genericOptions = {
 export const config = {
   type: "line",
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: resultArray,
     datasets: [
       {
         label: "My First Dataset",

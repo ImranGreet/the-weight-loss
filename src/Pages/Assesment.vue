@@ -9,12 +9,12 @@
             <h3>Your assessment</h3>
             <div class="w-full flex flex-col justify-center items-center">
               <img
-                src="https://www.joinvoy.com/_next/image?url=%2Fimages%2FDrQuote%2FEarim%403x.png&w=64&q=75"
+                src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt=""
-                class="w-36 h-36 rounded-fulll"
+                class="w-36 h-36 rounded-full"
               />
               <div>
-                <h3>By Dr. Earim Chaudry</h3>
+                <h3>By Dr Ony</h3>
                 <p>Medical Director</p>
               </div>
               <div>
@@ -23,7 +23,7 @@
               </div>
               <div>
                 <h5>WITH OUR PERSONALISED PLAN</h5>
-                <h2>You could reach {{ newWeight }} kg</h2>
+                <h2>You could reach {{ Math.ceil(newWeight) }} kg</h2>
                 <h2>In 6 Months</h2>
                 <p>
                   That’s a weight loss of {{ Math.floor(weightLossTotal) }} kg
@@ -31,7 +31,7 @@
               </div>
             </div>
           </div>
-          <WeightChnageVue />
+          <WeightChnage :weightLossData="remainWeight" />
         </div>
       </div>
     </div>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import WeightChnageVue from "../components/Graphs/WeightChnage.vue";
+import WeightChnage from "../components/Graphs/WeightChnage.vue";
 import {
   weightOfApplicant,
   heightOfApplicant,
@@ -48,42 +48,32 @@ import {
 
 export default {
   name: "Assesment",
-  components: { WeightChnageVue },
+  components: { WeightChnage },
   setup() {
-    const calculateBMI = (weight, height) => weight / height ** 2;
-
     const initialWeight = weightOfApplicant.value;
     const height = heightOfApplicant.value / 100;
-    const initialBMI =
-      weightOfApplicant.value /
-      (heightOfApplicant.value * heightOfApplicant.value);
+
     const targetBMI = 24;
     const targetWeight = targetBMI * height * height;
     const weightLossTotal = initialWeight - targetWeight;
     const months = 6;
     let newWeight = 0;
+    let remainWeight = [];
 
     for (let month = 1; month <= months; month++) {
-      const initialBMI = calculateBMI(initialWeight, height);
-
       const weightLossThisMonth = (weightLossTotal / months) * month;
 
       newWeight = initialWeight - weightLossThisMonth;
-
-      const newBMI = calculateBMI(newWeight, height);
-
-      const weightLossRatio = (weightLossThisMonth / weightLossTotal).toFixed(
-        2
-      );
-
-      remainingWeights.push(newWeight);
+      remainWeight.push(newWeight);
     }
-
+    remainingWeights.value.push(remainWeight);
     return {
       weightOfApplicant,
       heightOfApplicant,
       newWeight,
       weightLossTotal,
+      remainWeight,
+      remainingWeights,
     };
   },
 };
