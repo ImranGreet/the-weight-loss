@@ -1,6 +1,10 @@
-import { weightOfApplicant, heightOfApplicant } from "../scripts/calculatation";
+import {
+  weightOfApplicant,
+  heightOfApplicant,
+  remainingWeights,
+} from "../scripts/calculatation";
 
-const data = [80, 78, 75, 70, 68, 65, 50];
+const data = remainingWeights;
 const len = data.length;
 
 const skipped = (ctx, value) => {

@@ -38,12 +38,44 @@
 
 <script>
 import WeightChnageVue from "../components/Graphs/WeightChnage.vue";
-import { weightOfApplicant, heightOfApplicant } from "../scripts/calculatation";
+import {
+  weightOfApplicant,
+  heightOfApplicant,
+  remainingWeights,
+} from "../scripts/calculatation";
 
 export default {
   name: "Assesment",
   components: { WeightChnageVue },
   setup() {
+    const calculateBMI = (weight, height) => weight / height ** 2;
+
+    const initialWeight = weightOfApplicant.value;
+    const height = heightOfApplicant.value / 100;
+    const initialBMI =
+      weightOfApplicant.value /
+      (heightOfApplicant.value * heightOfApplicant.value);
+    const targetBMI = 24;
+    const targetWeight = targetBMI * height * height;
+    const weightLossTotal = initialWeight - targetWeight;
+    const months = 6;
+
+    for (let month = 1; month <= months; month++) {
+      const initialBMI = calculateBMI(initialWeight, height);
+
+      const weightLossThisMonth = (weightLossTotal / months) * month;
+
+      const newWeight = initialWeight - weightLossThisMonth;
+
+      const newBMI = calculateBMI(newWeight, height);
+
+      const weightLossRatio = (weightLossThisMonth / weightLossTotal).toFixed(
+        2
+      );
+
+      remainingWeights.push(newWeight);
+    }
+
     return {
       weightOfApplicant,
       heightOfApplicant,
