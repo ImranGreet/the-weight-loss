@@ -39,7 +39,7 @@
         </small>
       </div>
       <div class="w-full h-5"></div>
-      <form class="space-y-5">
+      <div class="space-y-5">
         <div class="flex items-center">
           <input
             v-model="agreed"
@@ -62,7 +62,7 @@
         >
           Review Your answers
         </button>
-      </form>
+      </div>
     </div>
   </section>
 </template>
