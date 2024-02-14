@@ -18,14 +18,16 @@
                 <p>Medical Director</p>
               </div>
               <div>
-                <h2>You are currenly {{ weightOfApplicant }} kgs</h2>
+                <h2>You are currenly {{ Math.ceil(weightOfApplicant) }} kgs</h2>
                 <h4>Your goals Became more active</h4>
               </div>
               <div>
                 <h5>WITH OUR PERSONALISED PLAN</h5>
-                <!-- <h2>You could reach 20 kg</h2> -->
+                <h2>You could reach {{ newWeight }} kg</h2>
                 <h2>In 6 Months</h2>
-                <!-- <p>That’s a weight loss of 2 kg</p> -->
+                <p>
+                  That’s a weight loss of {{ Math.floor(weightLossTotal) }} kg
+                </p>
               </div>
             </div>
           </div>
@@ -59,13 +61,14 @@ export default {
     const targetWeight = targetBMI * height * height;
     const weightLossTotal = initialWeight - targetWeight;
     const months = 6;
+    let newWeight = 0;
 
     for (let month = 1; month <= months; month++) {
       const initialBMI = calculateBMI(initialWeight, height);
 
       const weightLossThisMonth = (weightLossTotal / months) * month;
 
-      const newWeight = initialWeight - weightLossThisMonth;
+      newWeight = initialWeight - weightLossThisMonth;
 
       const newBMI = calculateBMI(newWeight, height);
 
@@ -79,6 +82,8 @@ export default {
     return {
       weightOfApplicant,
       heightOfApplicant,
+      newWeight,
+      weightLossTotal,
     };
   },
 };
