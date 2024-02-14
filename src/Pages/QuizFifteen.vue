@@ -91,11 +91,11 @@ export default {
       selected.value = option;
 
       if (selected.value) {
-        console.log(selected.value, "pop");
+        
         routes.push({ name: "quiz16" });
-        console.log(recommneded.value);
+        
       } else {
-        toggleRecommned();
+        routes.push({name:'quiz17'})
       }
     };
 
