@@ -11,7 +11,7 @@
               GLP-1 Medication including Rybelsus, Saxenda, Ozempic, Trulicity
               or Victoza
             </p>
-            <p>Orlistat</p>
+
             <p>Salcaprozate sodium</p>
             <p>Povidone K90</p>
             <p>Cellulose, microcrystalline</p>

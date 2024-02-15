@@ -66,7 +66,7 @@ export default {
       newWeight = initialWeight - weightLossThisMonth;
       remainWeight.push(newWeight);
     }
-    remainingWeights.value.push(remainWeight);
+    console.log(remainWeight);
     return {
       weightOfApplicant,
       heightOfApplicant,

@@ -11,7 +11,7 @@
             <input
               type="number"
               class="w-full rounded-lg p-3 bg-inherit border focus:outline-none"
-              placeholder="cms"
+              placeholder="cm"
               v-model="height"
               @change="validateHeight"
             />
@@ -22,7 +22,7 @@
             <input
               type="number"
               class="w-full p-3 rounded-lg bg-inherit border focus:outline-none"
-              placeholder="kgs"
+              placeholder="kg"
               v-model="weight"
               @change="validateWeight"
             />

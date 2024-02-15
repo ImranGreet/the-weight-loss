@@ -61,7 +61,7 @@ export default {
           { id: 2, text: "Dieting", selected: ref(false) },
           { id: 3, text: "Calorie counting", selected: ref(false) },
           { id: 4, text: "Weight loss programs", selected: ref(false) },
-          { id: 5, text: "Weight loss supplements", selected: ref(false) },
+          { id: 5, text: "weight loss medications", selected: ref(false) },
           { id: 6, text: "Meal replacements and shakes", selected: ref(false) },
           { id: 7, text: "Other", selected: ref(false) },
           {

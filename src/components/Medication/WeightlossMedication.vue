@@ -4,7 +4,9 @@
       <h1>Learn about weight loss medications:</h1>
     </div>
 
-    <div class="w-full flex flex-col lg:flex-row justify-start items-center gap-x-4">
+    <div
+      class="w-full flex flex-col lg:flex-row justify-start items-center gap-x-4"
+    >
       <div
         v-for="(equipment, index) in medicationsEquipments"
         :key="index"

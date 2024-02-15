@@ -9,14 +9,15 @@
               <li>Liver, kidney, or heart failure</li>
               <li>Pancreatitis</li>
               <li>Multiple endocrine neoplasia type 2</li>
-              <li>Cancer</li>
+              <li>history of cancer</li>
               <li>Type 1 diabetes or diabetic retinopathy</li>
+              
               <li>Personal or family history of medullary thyroid cancer</li>
               <li>
                 A current eating disorder or a history of an eating disorder?
                 (e.g., anorexia, bulimia, binge eating disorder)
               </li>
-              <li>History of gallbladder problem</li>
+              <li>Gallstones</li>
               <li>History of Inflammatory bowel disease or gastroparesis</li>
             </ol>
             <div class="flex flex-col items-center w-full space-y-4">

@@ -9,6 +9,7 @@
               <li>Insulin</li>
               <li>Sulfonylureas e.g., gliclazide</li>
               <li>Orlistat</li>
+              <li>'DPP4 inhibitors - usually ending in the word 'gliptin''</li>
             </ol>
             <div class="flex flex-col items-center w-full space-y-4">
               <div class="flex flex-col items-center w-full">

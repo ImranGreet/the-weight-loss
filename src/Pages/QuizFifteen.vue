@@ -6,13 +6,15 @@
           <h1>Have you been diagnosed with any of these medical conditions?</h1>
           <div class="px-3">
             <ol class="list-disc">
-              <li>Type 2 diabetes</li>
+              <li>
+                Type 2 diabetes that is treated injectable medication or insulin
+              </li>
               <li>High blood pressure</li>
               <li>High cholesterol</li>
               <li>Erectile dysfunction</li>
               <li>Sleep apnoea</li>
               <li>Asthma</li>
-              <li>Gallbladder disease</li>
+              <li>Gallstones</li>
               <li>Osteoarthritis</li>
               <li>Chronic back pain</li>
               <li>Depression</li>
@@ -91,11 +93,9 @@ export default {
       selected.value = option;
 
       if (selected.value) {
-        
         routes.push({ name: "quiz16" });
-        
       } else {
-        routes.push({name:'quiz17'})
+        routes.push({ name: "quiz17" });
       }
     };
 

@@ -38,7 +38,6 @@ export default {
   },
   setup(props) {
     const data = props.weightLossData;
-    console.log(props.weightLossData, "props");
 
     const len = data.length - 1;
 
