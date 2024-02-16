@@ -29,6 +29,11 @@ const routes = [
     component: () => import("../Layouts/Quiz.vue"),
     children: [
       {
+        path: "/greet",
+        name: "greet",
+        component: () => import("../Pages/Greet.vue"),
+      },
+      {
         path: "/n/weight-loss/quiz/1",
         name: "quiz",
         component: () => import("../Pages/Agreement.vue"),

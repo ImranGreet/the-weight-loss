@@ -13,7 +13,7 @@
             coaching and healthy lifestyle changes.
           </p>
           <router-link
-            :to="{ name: 'quiz' }"
+            :to="{ name: 'greet' }"
             class="bg-primary px-5 py-3 rounded-md border border-white w-full sm:w-auto no-underline"
           >
             Am I Eligible

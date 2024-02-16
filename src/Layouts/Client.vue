@@ -14,7 +14,7 @@
               Take the first step towards weight loss that lasts.
             </p>
             <router-link
-              :to="{ name: 'quiz' }"
+              :to="{ name: 'greet' }"
               class="px-10 py-3 border border-white w-full sm:w-auto mt-4 sm:mt-0 bg-primary sm:bg-inherit"
             >
               Am I Eligible
