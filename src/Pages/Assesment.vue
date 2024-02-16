@@ -18,7 +18,7 @@
                 <p>Medical Director</p>
               </div>
               <div>
-                <h2>You are currenly {{ Math.ceil(weightOfApplicant) }} kgs</h2>
+                <h2>You are currenly {{ Math.ceil(weightOfApplicant) }} kg</h2>
                 <h4>Your goals Became more active</h4>
               </div>
               <div>
