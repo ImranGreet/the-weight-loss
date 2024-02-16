@@ -53,7 +53,7 @@ export default {
     const naviagteToPage = function () {
       selected.value = !selected.value;
       if (selected.value) {
-        routes.push({ name: "quizTwo" });
+        routes.push({ name: "assesment" });
       }
     };
 

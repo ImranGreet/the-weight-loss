@@ -34,8 +34,8 @@ const routes = [
         component: () => import("../Pages/Greet.vue"),
       },
       {
-        path: "/n/weight-loss/quiz/1",
-        name: "quiz",
+        path: "/n/weight-loss/quiz/agree",
+        name: "agree",
         component: () => import("../Pages/Agreement.vue"),
       },
       {
