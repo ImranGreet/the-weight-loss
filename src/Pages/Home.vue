@@ -1,46 +1,18 @@
 <template>
-  <section class="w-full flex flex-col justify-between gap-y-6">
+  <section class="w-full flex flex-col justify-between items-center space-y-10">
     <intro />
     <Trust />
     <WayOfLossWeight />
-    <Video />
-    <Step />
-    <Result />
+
     <div class="w-full h-10"></div>
-    <!-- <BeforeAfter /> -->
+
     <Curve />
-    <ExpertGroup />
-    <WeightLossJourneyContainer />
-    <div class="w-full h-14 lg:h-36"></div>
-    <Poster />
-    <div class="w-full h-14 lg:h-36"></div>
-    <Paralax>
-      <div
-        class="w-full flex flex-col justify-center items-center h-auto lg:h-96"
-      >
-        <div class="w-full lg:w-2/6 max-auto">
-          <div class="prose max-w-none text-center text-white">
-            <h1>The last weight loss programme you will ever need</h1>
-            <p class="text-sm">
-              Take the first step towards weight loss that lasts.
-            </p>
-            <div class="w-full h-5"></div>
-            <router-link
-              :to="{ name: 'greet' }"
-              class="px-20 py-3 rounded-md border border-white w-full sm:w-auto no-underline"
-            >
-              Am I Eligible
-            </router-link>
-          </div>
-        </div>
-      </div>
-    </Paralax>
   </section>
 </template>
 
 <script>
 import Curve from "../components/Curve.vue";
-import WayOfLossWeight from "../components/Homepage/WayOfLossWeight.vue";
+import WayOfLossWeight from "../components/Homepage/focusText.vue";
 import Intro from "../components/Intro.vue";
 import Result from "../components/Result.vue";
 import BeforeAfter from "../components/Slider/BeforeAfter.vue";

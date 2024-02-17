@@ -28,14 +28,13 @@
                   class="flex items-center space-x-2 shadow border w-full border-gray-400 p-2 cursor-pointer rounded-md"
                 >
                   <input
-                    type="radio"
-                    id="radioYes"
-                    name="answer"
+                    type="checkbox"
+                    id="checkDiagnosed"
                     class="hidden"
                     @change="selectOption(true)"
                   />
                   <span
-                    class="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center"
+                    class="w-6 h-6 rounded-lg border-2 border-gray-400 flex items-center justify-center"
                     :class="{ 'bg-orange-700': selected === true }"
                   >
                     <span
@@ -43,7 +42,7 @@
                       class="inner-circle w-3 h-3 rounded-full bg-white"
                     ></span>
                   </span>
-                  <span class="text-xl">Yes</span>
+                  <span class="text-xl">Diagnosed</span>
                 </label>
               </div>
 
@@ -52,14 +51,13 @@
                   class="flex items-center space-x-2 w-full shadow border border-gray-400 p-2 cursor-pointer rounded-md"
                 >
                   <input
-                    type="radio"
-                    id="radioNo"
-                    name="answer"
+                    type="checkbox"
+                    id="checkNone"
                     class="hidden"
                     @change="selectOption(false)"
                   />
                   <span
-                    class="w-6 h-6 rounded-full border-2 border-gray-400 flex items-center justify-center"
+                    class="w-6 h-6 rounded-lg border-2 border-gray-400 flex items-center justify-center"
                     :class="{ 'bg-orange-700': selected === false }"
                   >
                     <span
@@ -67,7 +65,7 @@
                       class="inner-circle w-3 h-3 rounded-full bg-white"
                     ></span>
                   </span>
-                  <span class="text-xl">No</span>
+                  <span class="text-xl">None</span>
                 </label>
               </div>
             </div>
@@ -87,7 +85,7 @@ export default {
   name: "MedicalConditions",
   setup() {
     const routes = useRouter();
-    const selected = ref(null);
+    const selected = ref(false);
 
     const selectOption = function (option) {
       selected.value = option;

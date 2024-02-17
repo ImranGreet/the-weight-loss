@@ -1,54 +1,78 @@
 <template>
-  <section class="w-full mt-10 lg:mt-20">
-    <div
-      class="w-full flex flex-col items-center sm:flex-row py-8 lg:px-24 sm:gap-x-20 bg-primary"
-    >
-      <div class="w-full space-y-3 xl:pl-36 px-5 lg:px-0">
-        <div class="prose max-w-none sm:max-w-prose">
-          <h1 class="text-6xl font-[400px] leading-[72px]">
-            The last weight loss programme you’ll ever need
-          </h1>
-          <p class="leading-relaxed">
-            Break free of fads and yo-yo diets. Achieve a healthier, happier
-            weight with programmes backed by science.
-          </p>
-          <router-link
-            :to="{ name: 'greet' }"
-            class="bg-primary px-5 py-3 rounded-md border border-white w-full sm:w-auto no-underline"
-          >
-            Am I Eligible
-          </router-link>
-          <div class="border-t border-gray-700 mt-14">
-            <div class="w-full flex justify-start items-start gap-x-6">
-              <h1
-                class="text-3xl lg:text-4xl xl:text-6xl font-[400px] leading-[72px]"
-              >
-                No.1
-              </h1>
-              <p>
-                We are the UK’s leading medicated weight loss programme, with
-                over 10,000 UK members
-              </p>
-            </div>
+  <section class="w-full g-primary">
+    <div class="container mx-auto px-5 xl:px-0">
+      <div class="w-full flex flex-col items-center sm:flex-row sm:gap-x-20">
+        <div class="w-full space-y-3">
+          <div class="prose max-w-none">
+            <h1
+              class="text-4xl xl:text-6xl font-[400px] leading-snug xl:leading-[72px]"
+            >
+              Our Doctors are making weight loss easier to Achieve
+            </h1>
+            <ul class="list-none prose-ul:pl-0">
+              <li v-for="(achieve, index) in achvs" :key="index">
+                <p>
+                  <span
+                    ><CheckIcon
+                      class="inline-block w-6 h-6 text-white font-black text-2xl mr-3 bg-[#593461] border rounded-full p-1"
+                    />{{ achieve.title }}</span
+                  >
+                </p>
+              </li>
+            </ul>
+            <router-link
+              :to="{ name: 'greet' }"
+              class="bg-[#593560] text-white px-5 xl:px-10 mt-5 py-3 rounded-full border border-white w-full sm:w-auto no-underline"
+            >
+              Am I Eligible
+            </router-link>
           </div>
         </div>
-      </div>
-      <div class="w-full h-full flex justify-center items-center lg:pl-20">
-        <img
-          src="https://www.joinvoy.com/_next/image?url=https%3A%2F%2Fjoinvoycom.s3.eu-west-1.amazonaws.com%2FWEB_UK%2Fhomepage%2FHero%2FHomepage_Hero_Desktop_compliant.png&w=1920&q=100"
-          alt=""
-          class="w-full h-full object-center rounded-xl"
-        />
+        <div
+          class="w-full h-full flex justify-center items-center self-start xl:self-end lg:pl-20"
+        >
+          <InfiniteSlider />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { CheckBadgeIcon, CheckIcon } from "@heroicons/vue/20/solid";
+
+import InfiniteSlider from "./Slider/InfiniteSlider.vue";
+
+import { ref } from "vue";
+
 export default {
   name: "Intro",
+  components: { CheckBadgeIcon, CheckIcon, InfiniteSlider },
+  setup() {
+    const achvs = ref([
+      {
+        id: 1,
+        title: "New GLP-1 Medication proven to achieve lasting results",
+      },
+      {
+        id: 2,
+        title: "Doctor-led weight loss coaching and medical support",
+      },
+      {
+        id: 3,
+        title:
+          "Personalised programmes for every subscriber with tailored support for black and asian individuals",
+      },
+    ]);
+    return {
+      achvs,
+    };
+  },
 };
 </script>
 
-<style>
+<style scoped>
+.prose :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  padding-left: 0px;
+}
 </style>

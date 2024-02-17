@@ -1,37 +1,42 @@
 <template>
-  <div class="w-full bg-primary">
-    <div
-      class="w-full flex flex-col sm:flex-row justify-between items-center container mx-auto bg-primary py-20"
-    >
-      <div class="w-full prose max-w-none">
-        <div>
-          <h1>A programme backed by science</h1>
-          <small class="flex gap-x-2">
-            <span class="self-start">
-              <img
-                src="https://www.joinvoy.com/_next/image?url=https%3A%2F%2Fjoinvoycom.s3.eu-west-1.amazonaws.com%2Fshared%2Fimages%2Fpeople%2Fclinician_earim_circle.png&w=32&q=1"
-                alt=""
-                class="w-8 h-8 object-cover"
-              />
-            </span>
-            Dr. Earim Chaudry, Medical Director</small
-          >
-          <p>
-            “This program has completely changed my life, because I am a
-            diabetic and had previous difficulty in losing weight. Now, I eat
-            much healthier, drinking more water, exercising and being
-            optimistic. My sleep and the level of energy has improved a lot, I
-            don’t crave junk food, fizzy drinks, sweets, I don’t make anymore
-            late night visits to the kitchen and so many other positive
-            changes.”
-          </p>
+  <div class="w-full mx-auto bg-primary">
+    <div class="container mx-auto">
+      <div
+        class="w-full flex flex-col lg:flex-row justify-between items-center container mx-auto bg-primary py-20"
+      >
+        <div class="w-full prose max-w-none self-start px-5 lg:px-0">
+          <div class="w-full">
+            <h1 class="lg:text-3xl">
+              Because <span class="text-[#A25756]">Will Power </span> is not
+              enough
+            </h1>
+
+            <p class="text-2xl font-black leading-relaxed">
+              With the Evony Weight loss programme,You can expect to loss of
+              average 15% of Your body weight over 52 weeks of treatment
+            </p>
+            <div class="space-y-3 bg-[#A25756] text-white rounded-lg p-5">
+              <h3 class="font-black text-2xl">
+                Loose some, <span class="text-white">win some</span>
+              </h3>
+              <h3 class="font-black">
+                Personalised programme Weekly GLP Medication Support from expert
+                doctors
+              </h3>
+              <h3 class="font-black">
+                £249 £199/month 20% discount on month 1 - subsequent months
+                £249. Pay as you go, every 4 weeks.
+              </h3>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="w-full flex justify-center gap-x-3">
-        <img
-          src="https://joinvoycom.s3.eu-west-1.amazonaws.com/shared/science/Light_ChartComplex_desktop.svg"
-          alt=""
-        />
+        <div class="w-full flex justify-center mt-10 lg:mt-0">
+          <img
+            src="../assets/homepage/graph Screenshot 2024-02-08 155706.png"
+            alt=""
+            class="w-full lg:w-4/5 mx-auto"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -43,3 +48,7 @@ export default {};
 
 <style>
 </style>
+
+
+
+

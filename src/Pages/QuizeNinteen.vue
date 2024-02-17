@@ -8,29 +8,39 @@
             take them for.
           </h1>
           <p>
-            **Please note**, if you're currently taking a GLP-1, e.g. Wegovy,
-            you will be required to provide documentation (i.e., a copy of the
-            previous prescription/invoice or a photo of the medication box with
-            the dispensing label showing your name and the dispensing date) to
-            either remain or up-titrate to the next higher-strength medication.
-            You will be prescribed the initial starting strength pen if
-            documentation is not provided.
+            <span class="font-bold"> **Please note**</span>, If you are
+            presently using a GLP-1, such as Wegovy or Ozempic we're here to
+            help. If you believe you need a higher dose pen than the usual
+            0.25mg starting dose it will be necessary to send documentation
+            e.g., a copy of the prior prescription/invoice or a photo of the
+            medication box displaying your name and the dispensing date. In the
+            absence of documentation, you will be prescribed the initial
+            starting strength pen
           </p>
-          <div class="px-3">
-            <textarea
-              v-model="userAnswer"
-              placeholder="Type Your Answer Here .."
-              class="w-full p-2 border border-gray-400 rounded-md"
-              rows="4"
-            ></textarea>
-            <button
-              @click="continueToNextStep"
-              :disabled="userAnswer.trim() === ''"
-              class="bg-orange-700 w-full text-white py-2 px-4 rounded"
-            >
-              Continue
-            </button>
-          </div>
+
+          <form @submit.prevent="continueToNextStep()">
+            <div class="px-3 space-y-4">
+              <textarea
+                v-model="userAnswer"
+                placeholder="Type Your Answer Here .."
+                class="w-full p-2 border border-gray-400 rounded-md"
+                rows="4"
+              ></textarea>
+              <input
+                @input="uploadInvoiceOrPhoto()"
+                type="file"
+                name=""
+                id=""
+                class="w-full p-2 border border-gray-400 rounded-md"
+              />
+              <button
+                :disabled="userAnswer.trim() === '' || invoiceOrDoc === null"
+                class="bg-orange-700 w-full text-white py-2 px-4 rounded"
+              >
+                Continue
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -46,6 +56,11 @@ export default {
   setup() {
     const routes = useRouter();
     const userAnswer = ref("");
+    const invoiceOrDoc = ref(null);
+
+    const uploadInvoiceOrPhoto = function (event) {
+      invoiceOrDoc.value = event.target.files[0];
+    };
 
     const continueToNextStep = () => {
       routes.push({ name: "quiz19" });
@@ -54,6 +69,8 @@ export default {
     return {
       userAnswer,
       continueToNextStep,
+      uploadInvoiceOrPhoto,
+      invoiceOrDoc,
     };
   },
 };
