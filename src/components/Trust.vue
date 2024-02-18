@@ -79,7 +79,7 @@
               class="w-full flex justify-center items-center overflow-hidden rounded-2xl h-72 relative bg-[#B2CBC5]"
             >
               <img
-                src="../assets/homepage/Layer 3.png"
+                src="../assets/homepage/Layer.png"
                 alt=""
                 class="w-11/12 self-end mx-auto object-contain aspect-video"
               />
