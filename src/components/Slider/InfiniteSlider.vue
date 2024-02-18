@@ -25,7 +25,7 @@
         class="w-full h-64 flex justify-end items-center bg-[#593560] rounded-xl"
       >
         <img
-          src="../../assets/homepage/layer 3.png"
+          src="../../assets/homepage/Layer.png"
           alt=""
           class="h-1/2 mx-0 w-full"
         />
@@ -234,7 +234,7 @@
         class="w-full h-64 flex justify-end items-center bg-[#593560] rounded-xl"
       >
         <img
-          src="../../assets/homepage/Layer 3.png"
+          src="../../assets/homepage/Layer.png"
           alt=""
           class="h-1/2 mx-0 w-full"
         />
