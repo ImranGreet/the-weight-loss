@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @layer components {
+  .slider-container::before {
+    @apply before:content-[''] before:absolute before:bg-red-900 before:z-30 before:w-full before:h-36 before:top-2;
+  }
+} */

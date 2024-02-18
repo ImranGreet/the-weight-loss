@@ -26,15 +26,20 @@
                 class="w-full p-2 border border-gray-400 rounded-md"
                 rows="4"
               ></textarea>
-              <input
-                @input="uploadInvoiceOrPhoto()"
-                type="file"
-                name=""
-                id=""
-                class="w-full p-2 border border-gray-400 rounded-md"
-              />
+              <div class="p-2 border border-gray-300 rounded-lg">
+                <label for="invoice_file"
+                  >Include Your Prescription or Invoice</label
+                >
+                <input
+                  @input="uploadInvoiceOrPhoto()"
+                  type="file"
+                  name=""
+                  id=""
+                  class="w-full p-2 border border-gray-400 rounded-md"
+                />
+              </div>
               <button
-                :disabled="userAnswer.trim() === '' || invoiceOrDoc === null"
+                
                 class="bg-orange-700 w-full text-white py-2 px-4 rounded"
               >
                 Continue
@@ -63,7 +68,7 @@ export default {
     };
 
     const continueToNextStep = () => {
-      routes.push({ name: "quiz19" });
+      routes.push({ name: "quiz20" });
     };
 
     return {

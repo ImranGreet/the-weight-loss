@@ -78,21 +78,21 @@ const routes = [
         name: "quizNine",
         component: () => import("../Pages/Quize9.vue"),
       },
-      {
-        path: "/n/weight-loss/quiz/11",
-        name: "quizEleven",
-        component: () => import("../Pages/QuizEleven.vue"),
-      },
+      // {
+      //   path: "/n/weight-loss/quiz/11",
+      //   name: "quizEleven",
+      //   component: () => import("../Pages/QuizEleven.vue"),
+      // },
       {
         path: "/n/weight-loss/quiz/10",
         name: "quizeTen",
         component: () => import("../Pages/Quiz10.vue"),
       },
-      {
-        path: "/n/weight-loss/quiz/12",
-        name: "quiz12",
-        component: () => import("../Pages/Quiz12.vue"),
-      },
+      // {
+      //   path: "/n/weight-loss/quiz/12",
+      //   name: "quiz12",
+      //   component: () => import("../Pages/Quiz12.vue"),
+      // },
       {
         path: "/n/weight-loss/quiz/13",
         name: "quiz13",

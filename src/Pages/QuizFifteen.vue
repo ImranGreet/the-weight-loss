@@ -23,7 +23,7 @@
               <li>Chronic malabsorption syndrome</li>
             </ol>
             <div class="flex flex-col items-center w-full space-y-4">
-              <div class="flex flex-col items-center w-full">
+              <!-- <div class="flex flex-col items-center w-full">
                 <label
                   class="flex items-center space-x-2 shadow border w-full border-gray-400 p-2 cursor-pointer rounded-md"
                 >
@@ -44,7 +44,7 @@
                   </span>
                   <span class="text-xl">Diagnosed</span>
                 </label>
-              </div>
+              </div> -->
 
               <div class="flex flex-col items-center w-full">
                 <label

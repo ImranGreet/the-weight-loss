@@ -52,7 +52,7 @@ export default {
     const questions = ref([
       {
         id: 1,
-        text: "What challenges have you faced when trying to stay on track with your weight loss?",
+        text: "What are the main  challenges you face when trying to lose weight",
         reasons: [
           { id: 1, text: "I lose motivation", selected: ref(false) },
           {

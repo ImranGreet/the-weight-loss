@@ -85,7 +85,7 @@ export default {
     };
 
     const navigateToPage = function () {
-      routes.push({ name: "quiz20" });
+      routes.push({ name: "quiz21" });
     };
 
     return {

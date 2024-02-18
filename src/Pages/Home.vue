@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full flex flex-col justify-between items-center space-y-10">
+  <section class="w-full flex flex-col justify-between items-center space-y-14">
     <intro />
     <Trust />
     <WayOfLossWeight />

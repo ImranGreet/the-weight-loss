@@ -1,6 +1,6 @@
 <template>
   <div class="w-full mx-auto bg-primary">
-    <div class="container mx-auto">
+    <div class="container xl:max-w-7xl mx-auto">
       <div
         class="w-full flex flex-col lg:flex-row justify-between items-center container mx-auto bg-primary py-20"
       >

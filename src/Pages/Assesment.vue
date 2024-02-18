@@ -14,8 +14,13 @@
                 class="w-36 h-36 rounded-full"
               />
               <div>
-                <h3>By Dr Ony</h3>
-                <p>Medical Director</p>
+                <p class="bg-orange-600 bg-clip-text text-xl">
+                  Congratulations!
+                </p>
+                <h2>
+                  You qualify for the evony weight loss program. Please complete
+                  the next steps to commence your weight loss journey.
+                </h2>
               </div>
               <div>
                 <h2>You are currenly {{ Math.ceil(weightOfApplicant) }} kg</h2>

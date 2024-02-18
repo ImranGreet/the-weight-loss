@@ -81,7 +81,7 @@ export default {
     };
 
     const continueToNextStep = () => {
-      routes.push({ name: "quizEleven" });
+      routes.push({ name: "quiz13" });
       const selectedReasons = questions.value[
         currentQuestionIndex.value
       ].reasons.filter((reason) => reason.selected);

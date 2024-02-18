@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto px-5 xl:px-0">
+  <section class="container xl:max-w-7xl mx-auto px-5 xl:px-0">
     <div class="w-full space-y-8">
       <div class="prose max-w-none xl:max-w-prose">
         <h1 class="text-4xl">

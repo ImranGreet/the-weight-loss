@@ -1,7 +1,25 @@
 <template>
   <section class="w-full">
     <div class="w-full h-full flex flex-col justify-center items-center">
-      <div class="w-full px-2 sm:px-0 lg:w-1/3 mx-auto">
+      <div class="w-full px-2 sm:px-0 lg:w-1/3 mx-auto space-y-4">
+        <div class="prose max-w-none">
+          <h1>Are you from any of the following ethnic groups</h1>
+          <ul>
+            <li><small> Asian </small></li>
+            <li><small> Black African </small></li>
+
+            <li><small> African-Caribbean or Middle Eastern </small></li>
+          </ul>
+          <label for="cars" class="sr-only">Choose a option</label>
+          <select
+            name="cars"
+            id="cars"
+            class="w-24 p-2 rounded-lg bg-orange-300/50 text-gray-900"
+          >
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
         <div class="space-y-2 prose">
           <h1>What is your biological sex?</h1>
           <div class="px-3 space-y-6">
