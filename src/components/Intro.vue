@@ -22,7 +22,7 @@
             </ul>
             <router-link
               :to="{ name: 'greet' }"
-              class="bg-[#593560] text-white px-5 xl:px-10 mt-5 py-3 rounded-full border border-white w-full sm:w-auto no-underline"
+              class="bg-[#593560] text-white px-5 xl:px-10 mt-2 py-3 mb-5 sm:mb-0 rounded-full border border-white w-full sm:w-auto no-underline"
             >
               Am I Eligible
             </router-link>
@@ -31,7 +31,10 @@
         <div
           class="w-full h-full flex justify-center items-center self-start xl:self-end lg:pl-20"
         >
-          <InfiniteSlider />
+          <div class="hidden sm:block">
+            <InfiniteSlider />
+          </div>
+          <div class="block sm:hidden"><InfiniteMobile /></div>
         </div>
       </div>
     </div>
@@ -42,12 +45,13 @@
 import { CheckBadgeIcon, CheckIcon } from "@heroicons/vue/20/solid";
 
 import InfiniteSlider from "./Slider/InfiniteSlider.vue";
+import InfiniteMobile from "./Slider/InfiniteMobile.vue";
 
 import { ref } from "vue";
 
 export default {
   name: "Intro",
-  components: { CheckBadgeIcon, CheckIcon, InfiniteSlider },
+  components: { CheckBadgeIcon, CheckIcon, InfiniteSlider, InfiniteMobile },
   setup() {
     const achvs = ref([
       {

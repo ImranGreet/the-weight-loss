@@ -1,8 +1,10 @@
 <template>
   <div
-    class="w-full grid grid-cols-2 gap-x-6 h-screen overflow-hidden relative slider-container bg-primary"
+    class="w-full grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:h-screen overflow-hidden relative slider-container bg-primary"
   >
-    <div class="logos-slide flex flex-col justify-center items-center">
+    <div
+      class="logos-slide w-full flex flex-row gap-x-6 sm:flex-col justify-center items-center"
+    >
       <div
         class="w-full h-64 flex justify-end items-center bg-[#593560] rounded-xl"
       >
@@ -139,7 +141,9 @@
         />
       </div>
     </div>
-    <div class="logos-slide-two flex flex-col justify-center items-center">
+    <div
+      class="logos-slide-two w-full flex flex-row sm:flex-col justify-center items-center"
+    >
       <div
         class="w-full h-64 flex justify-end items-center bg-[#593560] rounded-xl"
       >
@@ -298,6 +302,17 @@ export default {
   }
   to {
     transform: translateY(-100%);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
 }
 .logos-slide div {
