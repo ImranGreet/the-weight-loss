@@ -125,11 +125,11 @@ export default {
 
 .logos-slide {
   display: flex;
-  animation: 35s slide infinite linear;
+  animation: 35s slide infinite linear ease-in-out;
 }
 .logos-slide-two {
   display: flex;
-  animation: 30s slide infinite linear;
+  animation: 30s slide infinite linear ease-in-out;
 }
 
 .logos-slide img {

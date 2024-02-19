@@ -34,7 +34,7 @@
           <div class="hidden sm:block">
             <InfiniteSlider />
           </div>
-          <div class="block sm:hidden"><InfiniteMobile /></div>
+          <div class="hidden"><InfiniteMobile /></div>
         </div>
       </div>
     </div>

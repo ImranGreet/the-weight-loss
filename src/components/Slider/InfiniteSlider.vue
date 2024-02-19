@@ -316,13 +316,13 @@ export default {
   }
 }
 .logos-slide div {
-  animation: 10s slide infinite linear;
+  animation: 10s slide infinite ease-in-out;
   display: flex;
   flex-direction: column;
   margin: 12px 0;
 }
 .logos-slide-two div {
-  animation: 5s slide infinite linear;
+  animation: 5s slide infinite ease-in-out;
   display: flex;
   flex-direction: column;
   margin: 12px 0;
