@@ -156,6 +156,16 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/quiz",
+    component: () => import("../Layouts/Questionnaire.vue"),
+    children: [
+      {
+        path: "/quiz",
+        component: () => import("../Pages/QuizAndAnswer.vue"),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({
