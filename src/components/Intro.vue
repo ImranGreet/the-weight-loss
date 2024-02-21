@@ -29,7 +29,7 @@
           </div>
         </div>
         <div
-          class="w-full h-full flex justify-center items-center self-start xl:self-end"
+          class="w-full h-full hidden sm:flex justify-center items-center self-start xl:self-end"
         >
           <video
             ref="videoPlayer"
