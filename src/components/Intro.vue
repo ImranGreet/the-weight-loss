@@ -29,12 +29,18 @@
           </div>
         </div>
         <div
-          class="w-full h-full flex justify-center items-center self-start xl:self-end lg:pl-20"
+          class="w-full h-full flex justify-center items-center self-start xl:self-end"
         >
-          <div class="hidden sm:block">
-            <InfiniteSlider />
-          </div>
-          <div class="hidden"><InfiniteMobile /></div>
+          <video
+            ref="videoPlayer"
+            playsinline
+            loop
+            muted
+            autoplay
+            class="w-full h-full object-cover"
+          >
+            <source src="../assets//homepage/wayvideo.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>
