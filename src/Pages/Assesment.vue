@@ -8,13 +8,8 @@
           <div class="w-full prose texr-center">
             <h3>Your assessment</h3>
             <div class="w-full flex flex-col justify-center items-center">
-              <img
-                src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-                class="w-36 h-36 rounded-full"
-              />
               <div>
-                <p class="bg-orange-600 bg-clip-text text-xl">
+                <p class="bg-orange-600 bg-clip-text text-4xl">
                   Congratulations!
                 </p>
                 <h2>
