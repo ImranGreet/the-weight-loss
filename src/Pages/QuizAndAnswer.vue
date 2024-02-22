@@ -9,7 +9,7 @@ import Greeting from "../components/Steps/Greeting.vue";
 import Requirments from "../components/Steps/Requirments.vue";
 import StepOne from "../components/Steps/Step1.vue";
 import StepTwo from "../components/Steps/Step2.vue";
-import StepThree from "../components/Steps/step3.vue";
+import StepThree from "../components/Steps/Step3.vue";
 import StepFour from "../components/Steps/Step4.vue";
 import StepFive from "../components/Steps/Step5.vue";
 import StepSix from "../components/Steps/Step6.vue";
