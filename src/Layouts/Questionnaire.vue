@@ -13,6 +13,7 @@
       <router-view></router-view>
       <div class="w-full flex justify-between items-center">
         <button
+          @click="compoOperationInBack()"
           class="px-10 py-3 rounded-lg bg-gray-400 hover:bg-gray-600 text-white shadow-sm"
         >
           Back
@@ -24,6 +25,7 @@
             Save
           </button>
           <button
+            @click="compoOperationInNext()"
             class="px-10 py-3 rounded-lg bg-gray-400 hover:bg-gray-600 text-white shadow-sm"
           >
             Next
@@ -35,8 +37,19 @@
 </template>
 
 <script>
+import {
+  compoOperationInBack,
+  compoOperationInNext,
+} from "../scripts/functional_quiz/renderCompos";
+
 export default {
   name: "Questionnaire",
+  setup() {
+    return {
+      compoOperationInBack,
+      compoOperationInNext,
+    };
+  },
 };
 </script>
 
