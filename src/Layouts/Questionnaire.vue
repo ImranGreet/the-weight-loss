@@ -11,34 +11,6 @@
       class="container px-5 xl:px-8 py-5 xl:w-2/5 flex flex-col justify-between gap-y-4 bg-white rounded-lg"
     >
       <router-view></router-view>
-      <div
-        class="w-full flex items-center"
-        :class="{
-          'justify-end': renderCompo === 0,
-          'justify-between': renderCompo > 0,
-        }"
-      >
-        <button
-          @click="compoOperationInBack()"
-          class="px-10 py-3 rounded-lg bg-gray-400 hover:bg-gray-600 text-white shadow-sm"
-          :class="{ hidden: renderCompo === 0, inline: renderCompo > 0 }"
-        >
-          Back
-        </button>
-        <div class="flex gap-x-7">
-          <button
-            class="px-10 py-3 hover:bg-gray-600 hover:text-white rounded-lg"
-          >
-            Save
-          </button>
-          <button
-            @click="compoOperationInNext()"
-            class="px-10 py-3 rounded-lg bg-gray-400 hover:bg-gray-600 text-white shadow-sm"
-          >
-            Next
-          </button>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -53,10 +25,14 @@ import {
 export default {
   name: "Questionnaire",
   setup() {
+    const renderNextCompo = function () {
+      compoOperationInNext();
+    };
     return {
       compoOperationInBack,
       compoOperationInNext,
       renderCompo,
+      renderNextCompo,
     };
   },
 };

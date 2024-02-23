@@ -1,6 +1,9 @@
 <template>
   <section class="w-full">
-    <div class="w-full h-full flex flex-col justify-start items-start">
+    <form
+      @submit.prevent="submitData()"
+      class="w-full h-full flex flex-col justify-start items-start"
+    >
       <div
         class="w-full px-2 sm:px-0 flex flex-col justify-start items-start mx-auto"
       >
@@ -19,32 +22,34 @@
           </div>
         </div>
       </div>
-    </div>
+      <globalForm />
+    </form>
   </section>
 </template>
   
   <script>
 import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
+import { compoOperationInNext } from "../../scripts/functional_quiz/renderCompos";
 
 export default {
   name: "StepThree",
   setup() {
-    const routes = useRouter();
-
     let question = "What is your goal weight?";
     let goalWeight = ref("");
     let goalWeightError = ref("");
     let switchToStone = ref(false);
     let hasErrors = ref(false);
 
+    const submitData = function () {
+      compoOperationInNext();
+    };
     return {
       question,
-
       goalWeight,
       goalWeightError,
       switchToStone,
       hasErrors,
+      submitData,
     };
   },
 };

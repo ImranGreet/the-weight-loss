@@ -1,10 +1,12 @@
 <template>
   <section class="w-full">
     <div class="w-full h-full flex flex-col justify-start items-start">
-      <div
+      <form
+        @submit.prevent="submitData()"
         class="w-full px-2 sm:p-5 rounded-lg flex flex-col justify-start items-start mx-auto"
+        :class="{ 'bg-red-100': pageErrorMarking }"
       >
-        <form class="space-y-6 prose">
+        <div class="space-y-6 prose">
           <h3>{{ currentQuestion.text }}</h3>
           <div
             v-for="reason in currentQuestion.reasons"
@@ -16,12 +18,12 @@
               :id="`reason-${reason.id}`"
               v-model="reason.selected"
               class="text-primary focus:ring-2 focus:ring-primary w-5 h-5 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
-              @click="toggleCheckbox(reason)"
+              @click="store.toggleCheckbox(reason)"
             />
             <label
               :for="`reason-${reason.id}`"
               class="text-lg"
-              @click="toggleCheckbox(reason)"
+              @click="store.toggleCheckbox(reason)"
             >
               {{ reason.text }}
             </label>
@@ -34,75 +36,62 @@
           >
             <input
               type="text"
-              name=""
               id=""
+              v-model="othersInfo"
               class="w-full px-4 py-2 rounded-md placeholder:text-blue-700 placeholder:font-semibold focus:outline-none border border-gray-100"
               placeholder="Please type another option here"
             />
-            <p class="text-red-500"><span></span></p>
+            <p
+              v-if="otherSelection && othersInfo.trim() === ''"
+              class="bg-red-400 inline-block px-3 py-0.5 text-white rounded-lg"
+            >
+              <span
+                class="w-5 h-5 text-gray-800 inline-flex justify-center items-center rounded-full bg-white"
+                >!</span
+              >
+              This is field is required
+            </p>
           </div>
-        </form>
-      </div>
+          <globalForm />
+        </div>
+      </form>
     </div>
   </section>
 </template>
   
   <script>
-import { computed, ref, watch } from "vue";
-
-import { validationError } from "../../scripts/functional_quiz/renderCompos";
+import { storeToRefs } from "pinia";
+import {
+  compoOperationInNext,
+  validationError,
+} from "../../scripts/functional_quiz/renderCompos";
+import { usePrimaryMotives } from "../../store/stepOne";
+import { ref } from "vue";
 
 export default {
   name: "Step1",
+
   setup() {
-    const questions = ref([
-      {
-        id: 1,
-        text: "What are the primary motivations behind your desire to shed excess weight?",
-        reasons: [
-          { id: 1, text: "Improving my overall health", selected: ref(false) },
-          {
-            id: 2,
-            text: "Avoiding or managing a specific health condition",
-            selected: ref(false),
-          },
-          { id: 3, text: "Looking and feeling better", selected: ref(false) },
-          { id: 4, text: "Becoming more active", selected: ref(false) },
-          {
-            id: 5,
-            text: "Improving my mood or mental wellbeing",
-            selected: ref(false),
-          },
-          {
-            id: 6,
-            text: "Improving my sleep or energy levels",
-            selected: ref(false),
-          },
-          { id: 7, text: "other", selected: ref(false) },
-        ],
-      },
-    ]);
+    const store = usePrimaryMotives();
+    const pageErrorMarking = ref(false);
 
-    const currentQuestionIndex = ref(0);
-    const selectedReasons = ref([]);
-    const otherSelection = ref(false);
-    let errorSign = ref(false);
+    const {
+      questions,
+      selectedReasons,
+      otherSelection,
+      errorSign,
+      currentQuestionIndex,
+      toggleCheckbox,
+      othersInfo,
+    } = storeToRefs(usePrimaryMotives());
 
-    const toggleCheckbox = (reason) => {
-      reason.selected = !reason.selected;
-
-      if (!selectedReasons.value.includes(reason.text)) {
-        selectedReasons.value.push(reason.text);
-      } else if (selectedReasons.value.includes(reason.text)) {
-        selectedReasons.value = selectedReasons.value.filter(
-          (item) => item !== reason.text
-        );
+    const submitData = function () {
+      console.log(selectedReasons.value.length, "len");
+      if (selectedReasons.value.length === 0 || otherSelection.value === true) {
+        pageErrorMarking.value = true;
+        return;
       }
-      if (selectedReasons.value.includes("other")) {
-        otherSelection.value = true;
-      } else {
-        otherSelection.value = false;
-      }
+      compoOperationInNext();
     };
 
     return {
@@ -112,6 +101,11 @@ export default {
       selectedReasons,
       otherSelection,
       errorSign,
+      store,
+      othersInfo,
+      pageErrorMarking,
+      submitData,
+      compoOperationInNext,
     };
   },
 };
