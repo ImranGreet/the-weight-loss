@@ -10,7 +10,7 @@
         }"
       >
         <div class="space-y-6 prose">
-          <h3 class="after:content-['*'] after:text-red-600 after:pl-2">
+          <h3 class="after-content">
             {{ currentQuestion.text }}
           </h3>
           <div
@@ -57,8 +57,9 @@
               This is field is required
             </p>
           </div>
-          <globalForm />
         </div>
+        <div class="w-full mt-2"></div>
+        <globalForm />
       </form>
     </div>
   </section>

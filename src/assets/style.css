@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .after-content {
+    @apply after:content-['*'] after:text-red-600 after:pl-2;
+  }
+}

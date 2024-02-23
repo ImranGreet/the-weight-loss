@@ -1,0 +1,137 @@
+<template>
+  <section class="w-full">
+    <div class="w-full h-full flex flex-col justify-center items-center">
+      <form
+        @submit.prevent="submitData()"
+        class="w-full px-2 sm:px-0 flex flex-col justify-center items-center mx-auto"
+      >
+        <div class="space-y-6 prose">
+          <h3 class="after-content">{{ question }}</h3>
+          <div class="flex flex-col items-start cursor-pointer p-4">
+            <label for="height" class="text-lg">Height</label>
+            <input
+              type="number"
+              class="w-full rounded-lg p-3 bg-inherit border focus:outline-none"
+              placeholder="cm"
+              v-model="height"
+              @change="validateHeight"
+            />
+            <p v-if="heightError" class="text-red-500">{{ heightError }}</p>
+          </div>
+          <div class="flex flex-col items-start cursor-pointer p-4">
+            <label for="weight" class="text-lg">Weight</label>
+            <input
+              type="number"
+              class="w-full p-3 rounded-lg bg-inherit border focus:outline-none"
+              placeholder="kg"
+              v-model="weight"
+              @change="validateWeight"
+            />
+            <p v-if="weightError" class="text-red-500">{{ weightError }}</p>
+          </div>
+        </div>
+        <globalForm />
+      </form>
+    </div>
+  </section>
+</template>
+
+<script>
+import { ref } from "vue";
+
+import {
+  weightOfApplicant,
+  heightOfApplicant,
+} from "../../../scripts/calculatation";
+
+import { useBMICalculation } from "../../../store/StepThree";
+import { storeToRefs } from "pinia";
+import { compoOperationInNext } from "../../../scripts/functional_quiz/renderCompos";
+
+export default {
+  name: "WeightLossQuestionnaire",
+  setup() {
+    const { height, weight } = storeToRefs(useBMICalculation());
+    let question = "What is your height and weight?";
+
+    let heightError = ref("");
+    let weightError = ref("");
+    let hasErrors = ref(false);
+
+    let validateHeight = function () {
+      let parsedHeight = parseFloat(height.value);
+      if (isNaN(parsedHeight) || parsedHeight < 90 || parsedHeight > 230) {
+        heightError.value = "This doesn't look right, enter your height in cm.";
+      } else {
+        heightError.value = "";
+      }
+
+      hasErrors.value = Boolean(heightError.value || weightError.value);
+    };
+
+    let validateWeight = function () {
+      let parsedWeight = parseFloat(weight.value);
+      if (isNaN(parsedWeight) || parsedWeight < 22 || parsedWeight > 444) {
+        weightError.value = "This doesn't look right, enter your weight in kg.";
+      } else {
+        weightError.value = "";
+      }
+
+      hasErrors.value = Boolean(heightError.value || weightError.value);
+    };
+
+    //calculate BMI
+    function calcculateBMI() {
+      let heightInMeters = height.value / 100;
+      let BMI = Math.ceil(weight.value / heightInMeters ** 2);
+    //   if (BMI >= 25) {
+        
+    //   } else {
+    //   }
+    }
+
+    let isAllowedToAdmin = function () {
+      validateHeight();
+      validateWeight();
+
+      hasErrors.value = Boolean(heightError.value || weightError.value);
+
+      if (!hasErrors.value) {
+        return true;
+      }
+
+      return false;
+    };
+
+    const submitData = function () {
+      if (isAllowedToAdmin()) {
+        calcculateBMI();
+        weightOfApplicant.value = weight.value;
+        heightOfApplicant.value = height.value;
+      }
+      compoOperationInNext();
+    };
+
+    return {
+      question,
+      submitData,
+      height,
+      weight,
+      heightError,
+      weightError,
+      hasErrors,
+      validateHeight,
+      validateWeight,
+    };
+  },
+};
+</script>
+
+<style>
+.form-checkbox:checked {
+  color: #60a5fa; /* Customize the color of the selected checkbox */
+}
+.focus\:ring-primary-dark:focus {
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5); /* Customize the focus ring color */
+}
+</style>
