@@ -11,7 +11,7 @@ export const usePrimaryMotives = defineStore("primaryMotives", () => {
   const questions = ref([
     {
       id: 1,
-      text: "What are the primary motivations behind your desire to shed excess weight?",
+      text: "What are your main reasons for wanting to lose weight?",
       reasons: [
         {
           id: 1,

@@ -4,10 +4,15 @@
       <form
         @submit.prevent="submitData()"
         class="w-full px-2 sm:p-5 rounded-lg flex flex-col justify-start items-start mx-auto"
-        :class="{ 'bg-red-100': pageErrorMarking }"
+        :class="{
+          'bg-red-100': pageErrorMarking,
+          'bg-blue-50': selectedReasons.length > 0,
+        }"
       >
         <div class="space-y-6 prose">
-          <h3>{{ currentQuestion.text }}</h3>
+          <h3 class="after:content-['*'] after:text-red-600 after:pl-2">
+            {{ currentQuestion.text }}
+          </h3>
           <div
             v-for="reason in currentQuestion.reasons"
             :key="reason.id"
@@ -17,12 +22,12 @@
               type="checkbox"
               :id="`reason-${reason.id}`"
               v-model="reason.selected"
-              class="text-primary focus:ring-2 focus:ring-primary w-5 h-5 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
+              class="text-primary focus:ring-2 focus:ring-primary w-4 h-4 accent-gray-500/50 checked:text-white checked:bg-white checked:ring-1"
               @click="store.toggleCheckbox(reason)"
             />
             <label
               :for="`reason-${reason.id}`"
-              class="text-lg"
+              class="text-base"
               @click="store.toggleCheckbox(reason)"
             >
               {{ reason.text }}
