@@ -20,12 +20,12 @@
                 </p>
               </li>
             </ul>
-            <router-link
-              :to="{ name: 'greet' }"
+            <a
+              href="https://xenmeshweightcheck.netlify.app/quiz"
               class="bg-[#593560] text-white px-5 xl:px-10 mt-2 py-3 mb-5 sm:mb-0 rounded-full border border-white w-full sm:w-auto no-underline"
             >
               Am I Eligible
-            </router-link>
+            </a>
           </div>
         </div>
         <div

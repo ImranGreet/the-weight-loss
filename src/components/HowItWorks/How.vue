@@ -12,12 +12,13 @@
             Our programme combines breakthrough GLP-1 medication with health
             coaching and healthy lifestyle changes.
           </p>
-          <router-link
-            :to="{ name: 'greet' }"
+          <a
+            href="https://xenmeshweightcheck.netlify.app/quiz"
+           
             class="bg-primary px-5 py-3 rounded-md border border-white w-full sm:w-auto no-underline"
           >
             Am I Eligible
-          </router-link>
+          </a>
         </div>
       </div>
       <div class="w-full h-full flex justify-center items-center lg:pl-20">

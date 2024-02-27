@@ -19,12 +19,12 @@
               Take the first step towards weight loss that lasts.
             </p>
             <div class="w-full h-5"></div>
-            <router-link
-              :to="{ name: 'greet' }"
+            <a
+              href="https://xenmeshweightcheck.netlify.app/quiz"
               class="px-20 py-3 rounded-md border border-white w-full sm:w-auto no-underline"
             >
               Am I Eligible
-            </router-link>
+            </a>
           </div>
         </div>
       </div>
